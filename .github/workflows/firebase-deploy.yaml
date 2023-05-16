@@ -9,7 +9,7 @@ on:
       - "main"
 
 jobs:
-  run-in-container:
+  integration:
     runs-on: ubuntu-22.04
     container: node:18-alpine
     steps:
@@ -28,6 +28,7 @@ jobs:
           yarn build
 
   deploy:
+    needs: integration
     runs-on: ubuntu-latest
     steps:
     - name: Deploy to Firebase
