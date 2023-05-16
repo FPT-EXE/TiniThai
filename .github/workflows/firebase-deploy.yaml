@@ -12,7 +12,7 @@ on:
       - "main"
 
 jobs:
-  integration:
+  build_and_deploy:
     runs-on: ubuntu-22.04
     container: node:18-alpine
     steps:
@@ -29,12 +29,8 @@ jobs:
       - name: Build
         run: |
           yarn build
+      - name: Deploy to Firebase
+        uses: mohammed-atif/firebase-publish-react@v1.0
+        with:
+          firebase-token: ${{ secrets.FIREBASE_TOKEN }}
 
-  deploy:
-    needs: integration
-    runs-on: ubuntu-latest
-    steps:
-    - name: Deploy to Firebase
-      uses: mohammed-atif/firebase-publish-react@v1.0
-      with:
-        firebase-token: ${{ secrets.FIREBASE_TOKEN }}
