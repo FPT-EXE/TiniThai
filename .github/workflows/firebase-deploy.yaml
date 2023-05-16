@@ -19,7 +19,7 @@ jobs:
           persist-credentials: false
       - name: Install
         run: |
-          yarn install --production --network-timeout 1000000000
+          yarn install --network-timeout 1000000000
       # - name: Unit Tests
       #   run: |
       #     yarn test-coverage
