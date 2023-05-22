@@ -1,15 +1,14 @@
-import { FC, useState } from 'react'
+import { FC, Fragment } from 'react'
 import './assets/styles/app.css'
 import './assets/styles/app.scss'
 
+import Login from './pages/Login'
+
 const App: FC = () => {
-  const [fullname] = useState('TiniThai')
-  console.log(fullname)
   return (
-    <div>
-      <h1>{fullname}</h1>
-      <h2>Bài viết được viết tại blog {process.env.HOST}</h2>
-    </div>
+    <Fragment>
+      <Login />
+    </Fragment>
   )
 }
 
