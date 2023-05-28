@@ -11,14 +11,13 @@
     "react-redux": "^8.0.5"
   },
   "scripts": {
-    "dev": "webpack-dev-server --mode development",
     "build": "webpack --mode production",
     "build:analyze": "webpack --mode production --env analyze",
-    "preview": "serve dist/ -s",
+    "dev": "webpack-dev-server --mode development",
     "lint": "eslint --ext js,jsx,ts,tsx src/",
     "lint:fix": "eslint --fix --ext js,jsx,ts,tsx src/",
-    "prettier": "prettier --check \"src/**/(*.tsx|*.ts|*.jsx|*.js|*.scss|*.css)\"",
-    "prettier:fix": "prettier --write \"src/**/(*.tsx|*.ts|*.jsx|*.js|*.scss|*.css)\""
+    "preview": "serve dist/ -s",
+    "start": "yarn build && yarn preview"
   },
   "devDependencies": {
     "@babel/core": "^7.21.8",
@@ -45,11 +44,9 @@
     "css-minimizer-webpack-plugin": "^5.0.0",
     "dotenv-webpack": "^8.0.1",
     "eslint": "^8.40.0",
-    "eslint-config-prettier": "^8.8.0",
     "eslint-import-resolver-typescript": "^3.5.5",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsx-a11y": "^6.7.1",
-    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-webpack-plugin": "^4.0.1",
@@ -57,7 +54,6 @@
     "html-webpack-plugin": "^5.5.1",
     "lodash": "^4.17.21",
     "mini-css-extract-plugin": "^2.7.5",
-    "prettier": "^2.8.8",
     "sass": "^1.62.1",
     "sass-loader": "^13.2.2",
     "serve": "^14.2.0",
