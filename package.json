@@ -11,14 +11,15 @@
     "react-redux": "^8.0.5"
   },
   "scripts": {
-    "dev": "webpack-dev-server --mode development",
     "build": "webpack --mode production",
     "build:analyze": "webpack --mode production --env analyze",
-    "preview": "serve dist/ -s",
+    "dev": "webpack-dev-server --mode development",
     "lint": "eslint --ext js,jsx,ts,tsx src/",
     "lint:fix": "eslint --fix --ext js,jsx,ts,tsx src/",
     "prettier": "prettier --check \"src/**/(*.tsx|*.ts|*.jsx|*.js|*.scss|*.css)\"",
-    "prettier:fix": "prettier --write \"src/**/(*.tsx|*.ts|*.jsx|*.js|*.scss|*.css)\""
+    "prettier:fix": "prettier --write \"src/**/(*.tsx|*.ts|*.jsx|*.js|*.scss|*.css)\"",
+    "preview": "serve dist/ -s",
+    "start": "yarn build && yarn preview"
   },
   "devDependencies": {
     "@babel/core": "^7.21.8",

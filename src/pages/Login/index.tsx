@@ -7,7 +7,7 @@ import FacebookLogo from '../../assets/images/FacebookLogo.svg'
 import MicrosoftLogo from '../../assets/images/MicrosoftLogo.svg'
 import login from '../../assets/images/login.svg'
 
-import FirebaseService from '../../services/FirebaseService'
+import FirebaseService from '../../shared/services/FirebaseService'
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface ILoginProps {}
