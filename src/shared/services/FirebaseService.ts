@@ -1,60 +1,61 @@
-import { initializeApp } from '@firebase/app'
-import { FacebookAuthProvider, getAuth, GoogleAuthProvider, OAuthProvider, signInWithPopup } from '@firebase/auth'
+import { initializeApp } from '@firebase/app';
+import { FacebookAuthProvider, getAuth, GoogleAuthProvider, OAuthProvider, signInWithPopup } from '@firebase/auth';
 
-import firebaseConfig from '../configurations/firebaseConfig'
+import firebaseConfig from '../configurations/firebaseConfig';
 
-export default class FirebaseService {
-  private static instance: FirebaseService
-  private app
-  private auth
 
-  private constructor() {
-    this.app = initializeApp(firebaseConfig)
-    this.auth = getAuth(this.app)
+class FirebaseService {
+	private _instance: FirebaseService;
+	private _app;
+	private _auth;
 
-    this.auth.languageCode = 'en'
-  }
+	constructor() {
+		this._app = initializeApp(firebaseConfig);
+		this._auth = getAuth(this._app);
+		this._instance = new FirebaseService();
+		this._auth.languageCode = 'en';
+	}
 
-  public static getInstance(): FirebaseService {
-    if (!FirebaseService.instance) FirebaseService.instance = new FirebaseService()
+	public getInstance(): FirebaseService {
+		return this._instance;
+	}
 
-    return FirebaseService.instance
-  }
+	public async signInWithGoogle(): Promise<string> {
+		const provider = new GoogleAuthProvider();
+		provider.addScope('email profile openid');
 
-  public async signInWithGoogle(): Promise<string> {
-    const provider = new GoogleAuthProvider()
-    provider.addScope('email profile openid')
+		const result = await signInWithPopup(this._auth, provider);
+		return result.user.getIdToken();
+	}
 
-    const result = await signInWithPopup(this.auth, provider)
-    return result.user.getIdToken()
-  }
+	public async signInWithFacebook(): Promise<string> {
+		const provider = new FacebookAuthProvider();
+		provider.setCustomParameters({
+			display: 'popup'
+		});
+		provider.addScope('openid email');
+		const result = await signInWithPopup(this._auth, provider);
+		return result.user.getIdToken();
+	}
 
-  public async signInWithFacebook(): Promise<string> {
-    const provider = new FacebookAuthProvider()
-    provider.setCustomParameters({
-      display: 'popup'
-    })
-    provider.addScope('openid email')
-    const result = await signInWithPopup(this.auth, provider)
-    return result.user.getIdToken()
-  }
+	public async signInWithMicrosoft(): Promise<string> {
+		const provider = new OAuthProvider('microsoft.com');
+		provider.setCustomParameters({
+			prompt: 'consent'
+		});
+		provider.addScope('openid email profile');
 
-  public async signInWithMicrosoft(): Promise<string> {
-    const provider = new OAuthProvider('microsoft.com')
-    provider.setCustomParameters({
-      prompt: 'consent'
-    })
-    provider.addScope('openid email profile')
+		const result = await signInWithPopup(this._auth, provider);
+		return result.user.getIdToken();
+	}
 
-    const result = await signInWithPopup(this.auth, provider)
-    return result.user.getIdToken()
-  }
+	public async getFirebaseToken(): Promise<string | undefined> {
+		return this._auth.currentUser?.getIdToken(true);
+	}
 
-  public async getFirebaseToken(): Promise<string | undefined> {
-    return this.auth.currentUser?.getIdToken(true)
-  }
-
-  public async getCurrentUser() {
-    return this.auth.currentUser
-  }
+	public async getCurrentUser() {
+		return this._auth.currentUser;
+	}
 }
+
+export default new FirebaseService();

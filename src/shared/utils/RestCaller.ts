@@ -1,1 +1,1 @@
-export const RestCaller = {}
+export const RestCaller = {};
