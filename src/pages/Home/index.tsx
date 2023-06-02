@@ -1,13 +1,13 @@
-import React from 'react';
-import { Grid, Typography } from '@mui/material';
-import { up } from 'styled-breakpoints';
-import { useBreakpoint } from 'styled-breakpoints/react-styled';
+import React from 'react'
+import { Grid, Typography } from '@mui/material'
+import { up } from 'styled-breakpoints'
+import { useBreakpoint } from 'styled-breakpoints/react-styled'
 
-import welcomeImg from '../../assets/images/welcomeImg.svg';
-import HeaderLandingPage from '../../shared/components/Header';
-import MultiActionAreaCard from '../../shared/components/CardMedia';
+import welcomeImg from '../../assets/images/welcomeImg.svg'
+import HeaderLandingPage from '../../shared/components/Header'
+import MultiActionAreaCard from '../../shared/components/CardMedia'
 
-import * as Styled from './styles';
+import * as Styled from './styles'
 
 
 const courses = [
@@ -29,10 +29,10 @@ const courses = [
 		description: 'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system',
 		price: 400
 	},
-];
+]
 
 const Home = () => {
-	const isScreenLarge: boolean | null = useBreakpoint(up('md'));
+	const isScreenLarge: boolean | null = useBreakpoint(up('md'))
 
 	return (
 		<div>
@@ -77,7 +77,7 @@ const Home = () => {
 			
 		</div>
 		
-	);
-};
+	)
+}
 
-export default Home;
+export default Home

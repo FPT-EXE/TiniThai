@@ -1,13 +1,13 @@
-import { Button, Grid, Typography } from '@mui/material';
-import * as React from 'react';
+import { Button, Grid, Typography } from '@mui/material'
+import * as React from 'react'
 
-import GoogleIcon from '../../assets/images/GoogleLogo.svg';
-import FacebookLogo from '../../assets/images/FacebookLogo.svg';
-import MicrosoftLogo from '../../assets/images/MicrosoftLogo.svg';
-import login from '../../assets/images/login.svg';
-import firebaseSvc from '../../shared/services/FirebaseService';
+import GoogleIcon from '../../assets/images/GoogleLogo.svg'
+import FacebookLogo from '../../assets/images/FacebookLogo.svg'
+import MicrosoftLogo from '../../assets/images/MicrosoftLogo.svg'
+import login from '../../assets/images/login.svg'
+import firebaseSvc from '../../shared/services/FirebaseService'
 
-import * as Styled from './styles';
+import * as Styled from './styles'
 
 
 interface ILoginProps {}
@@ -15,34 +15,34 @@ interface ILoginProps {}
 // eslint-disable-next-line max-lines-per-function
 const Login: React.FunctionComponent<ILoginProps> = () => {
 	const onSignInGoogle = async () => {
-		const token = await firebaseSvc.signInWithGoogle();
+		const token = await firebaseSvc.signInWithGoogle()
 		if (!token) {
-			console.log('Failed to sign in Google');
-			return;
+			console.log('Failed to sign in Google')
+			return
 		} // await doLogin(token)
-	};
+	}
 
 	const onSignInFacebook = async () => {
-		const token = await firebaseSvc.signInWithFacebook();
+		const token = await firebaseSvc.signInWithFacebook()
 
 		if (!token) {
-			console.log('Failed to sign in Facebook');
-			return;
+			console.log('Failed to sign in Facebook')
+			return
 		}
 
 		// await doLogin(token)
-	};
+	}
 
 	const onSignInMicrosoft = async () => {
-		const token = await firebaseSvc.signInWithMicrosoft();
+		const token = await firebaseSvc.signInWithMicrosoft()
 
 		if (!token) {
-			console.log('Failed to sign in Microsoft');
-			return;
+			console.log('Failed to sign in Microsoft')
+			return
 		}
 
 		// await doLogin(token)
-	};
+	}
 
 	return (
 		<Styled.Login>
@@ -177,7 +177,7 @@ const Login: React.FunctionComponent<ILoginProps> = () => {
 				</Grid>
 			</Grid>
 		</Styled.Login>
-	);
-};
+	)
+}
 
-export default Login;
+export default Login

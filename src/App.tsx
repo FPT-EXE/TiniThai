@@ -1,8 +1,8 @@
-import { FC, Fragment } from 'react';
+import { FC, Fragment } from 'react'
 
-import './assets/styles/app.css';
-import './assets/styles/app.scss';
-import Home from './pages/Home';
+import './assets/styles/app.css'
+import './assets/styles/app.scss'
+import Home from './pages/Home'
 
 
 const App: FC = () => {
@@ -10,7 +10,7 @@ const App: FC = () => {
 		<Fragment>
 			<Home />
 		</Fragment>
-	);
-};
+	)
+}
 
-export default App;
+export default App

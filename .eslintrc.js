@@ -155,6 +155,7 @@ module.exports = {
       rules: {
         'max-lines': ['error', 250],
         'max-lines-per-function': ['error', { max: 80 }],
+        'semi': ['error', 'never']
       },
     },
   ],

@@ -1,15 +1,25 @@
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea, CardActions, Grid, IconButton, Tooltip } from '@mui/material';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import * as React from 'react'
+import Card from '@mui/material/Card'
+import CardContent from '@mui/material/CardContent'
+import CardMedia from '@mui/material/CardMedia'
+import Typography from '@mui/material/Typography'
+import { CardActionArea, CardActions, Grid, IconButton, Tooltip } from '@mui/material'
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart'
 
 
-export default function MultiActionAreaCard(course: any) {
-	console.log(course);
-	console.log(course ? course.name : 'hong');
+type Course = {
+	title: string,
+	alias: string,
+	img: string,
+	price: number,
+	description: string,
+	rating: string,
+	degreeOfDifficulty: number,
+}
+
+export default function MultiActionAreaCard(course: Course) {
+	console.log(course)
+	console.log(course ? course.title : 'hong')
 	return (
 		<Card sx={{ maxWidth: 345 }}>
 			<CardActionArea>
@@ -21,7 +31,10 @@ export default function MultiActionAreaCard(course: any) {
 				/>
 				<CardContent>
 					<Typography gutterBottom variant="h5" component="div">
-						{course.name}
+						{course.title}
+					</Typography>
+					<Typography gutterBottom variant="h6" component="div">
+						{course.alias}
 					</Typography>
 					<Typography variant="body2" color="text.secondary">
 						{course.description}
@@ -47,5 +60,5 @@ export default function MultiActionAreaCard(course: any) {
 				
 			</CardActions>
 		</Card>
-	);
+	)
 }

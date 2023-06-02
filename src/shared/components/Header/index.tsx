@@ -1,33 +1,33 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable max-lines-per-function */
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import MenuItem from '@mui/material/MenuItem';
-import Menu from '@mui/material/Menu';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { Tooltip } from '@mui/material';
-import { useBreakpoint } from 'styled-breakpoints/react-styled';
-import { up } from 'styled-breakpoints';
+import * as React from 'react'
+import AppBar from '@mui/material/AppBar'
+import Box from '@mui/material/Box'
+import Toolbar from '@mui/material/Toolbar'
+import Typography from '@mui/material/Typography'
+import IconButton from '@mui/material/IconButton'
+import AccountCircle from '@mui/icons-material/AccountCircle'
+import MenuItem from '@mui/material/MenuItem'
+import Menu from '@mui/material/Menu'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
+import { Tooltip } from '@mui/material'
+import { useBreakpoint } from 'styled-breakpoints/react-styled'
+import { up } from 'styled-breakpoints'
 
 
 export default function MenuAppBar() {
-	const [auth] = React.useState(true);
-	const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+	const [auth] = React.useState(true)
+	const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
 
 	const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
-		setAnchorEl(event.currentTarget);
-	};
+		setAnchorEl(event.currentTarget)
+	}
 
 	const handleClose = () => {
-		setAnchorEl(null);
-	};
+		setAnchorEl(null)
+	}
 
-	const screen = useBreakpoint(up('md'));
+	const screen = useBreakpoint(up('md'))
 
 	return (
 		<Box sx={{ width: '100%' }}>
@@ -90,5 +90,5 @@ export default function MenuAppBar() {
 				</Toolbar>
 			</AppBar>
 		</Box>
-	);
+	)
 }
