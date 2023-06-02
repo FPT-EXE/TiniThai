@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography'
 import { CardActionArea, CardActions, Grid, IconButton, Tooltip } from '@mui/material'
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart'
 
-import { Course } from '../type'
+import { Course } from '../../../shared/common/types'
 
 
 

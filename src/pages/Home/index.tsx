@@ -4,11 +4,11 @@ import { up } from 'styled-breakpoints'
 import { useBreakpoint } from 'styled-breakpoints/react-styled'
 
 import welcomeImg from '../../assets/images/welcomeImg.svg'
+import { Course } from '../../shared/common/types'
 
-import HeaderLandingPage from './Header'
+import HeaderLandingPage from './Header/Header'
 import MultiActionAreaCard from './CardMedia'
 import * as Styled from './styles'
-import { Course } from './type'
 
 
 const courses: Course[] = [
