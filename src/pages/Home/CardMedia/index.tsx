@@ -6,16 +6,10 @@ import Typography from '@mui/material/Typography'
 import { CardActionArea, CardActions, Grid, IconButton, Tooltip } from '@mui/material'
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart'
 
+import { Course } from '../type'
 
-type Course = {
-	title: string,
-	alias: string,
-	img: string,
-	price: number,
-	description: string,
-	rating: string,
-	degreeOfDifficulty: number,
-}
+
+
 
 export default function MultiActionAreaCard(course: Course) {
 	console.log(course)
@@ -33,7 +27,7 @@ export default function MultiActionAreaCard(course: Course) {
 					<Typography gutterBottom variant="h5" component="div">
 						{course.title}
 					</Typography>
-					<Typography gutterBottom variant="h6" component="div">
+					<Typography gutterBottom variant="subtitle1" component="div">
 						{course.alias}
 					</Typography>
 					<Typography variant="body2" color="text.secondary">
