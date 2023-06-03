@@ -11,9 +11,12 @@ jobs:
     runs-on: ubuntu-22.04
     container: node:18-alpine
     env:
-      PUBLIC_FIREBASE_API_KEY: ${{secrets.PUBLIC_FIREBASE_API_KEY}}
+      PUBLIC_FIREBASE_API_KEY: ${{ secrets.PUBLIC_FIREBASE_API_KEY }}
     steps:
       - uses: actions/checkout@v3
+      - name: test
+        run: /
+          echo ${{ env.PUBLIC_FIREBASE_API_KEY }}
       - name: Install
         run: |
           yarn install --network-timeout 1000000000
