@@ -42,7 +42,8 @@ module.exports = {
     'import/order': ['error', { 'newlines-between': 'always' }],
     'import/named': 'off',
     'no-undef': 'off',
-    quotes: ['error', 'single', { avoidEscape: true }],
+    'quotes': ['error', 'single', { avoidEscape: true }],
+    'import/prefer-default-export': 'off'
   },
   // For *.ts files
   overrides: [

@@ -12,7 +12,7 @@ const App: FC = () => {
 		<Fragment>
 			<BrowserRouter>
 				<Routes>
-					<Route element={<Navigate to="/login" />} />
+					<Route path='/' element={<Navigate to="/login" />} />
 					<Route path="/login" Component={Login} />
 					<Route path="/home" Component={Home} />
 				</Routes>
