@@ -38,18 +38,24 @@ export default function MultiActionAreaCard(course: Course) {
 			</CardActionArea>
 			<CardActions>
 				<Grid container>
-					<Typography gutterBottom variant="h6" component="div">
-						{course.price}
-					</Typography>
-					<Tooltip title="Add to cart" sx={{ float: 'right' }}>
-						<IconButton
-							size="large"
-							aria-label="add to cart"
-							color="secondary"
-						>
-							<AddShoppingCartIcon />
-						</IconButton>
-					</Tooltip>
+					<Grid item>
+						<Typography gutterBottom variant="h6" component="div">
+							{course.price}
+						</Typography>
+					</Grid>
+					<Grid item>
+						<Tooltip title="Add to cart" sx={{ float: 'right' }}>
+							<IconButton
+								size="large"
+								aria-label="add to cart"
+								color="secondary"
+							>
+								<AddShoppingCartIcon />
+							</IconButton>
+						</Tooltip>
+					</Grid>
+					
+					
 				</Grid>
 				
 				
