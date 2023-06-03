@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 
 export const BodyWrapper = styled.div`
-    padding-top: 60px;
+    padding-top: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
