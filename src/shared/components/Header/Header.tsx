@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/naming-convention */
-/* eslint-disable max-lines-per-function */
 import * as React from 'react'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
@@ -16,7 +14,7 @@ import { up } from 'styled-breakpoints'
 
 
 export default function MenuAppBar() {
-	const [auth] = React.useState(true)
+	const [isAuth] = React.useState(true)
 	const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
 
 	const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -27,12 +25,12 @@ export default function MenuAppBar() {
 		setAnchorEl(null)
 	}
 
-	const screen = useBreakpoint(up('md'))
+	const isLargeScreen = useBreakpoint(up('md'))
 
 	return (
 		<Box sx={{ width: '100%' }}>
 			<AppBar position="static" color='primary' sx={
-				screen ? {
+				isLargeScreen ? {
 					paddingLeft: '10%', paddingRight: '10%'
 				} : {}
 			}>
@@ -50,7 +48,7 @@ export default function MenuAppBar() {
 					>
 						<ShoppingCartIcon />
 					</IconButton>
-					{auth && (
+					{isAuth && (
 						<div>
 							<Tooltip title="Open settings">
 								<IconButton
