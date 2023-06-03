@@ -5,19 +5,13 @@ import firebaseConfig from '../configurations/firebaseConfig';
 
 
 class FirebaseService {
-	private _instance: FirebaseService;
 	private _app;
 	private _auth;
 
 	constructor() {
 		this._app = initializeApp(firebaseConfig);
 		this._auth = getAuth(this._app);
-		this._instance = new FirebaseService();
 		this._auth.languageCode = 'en';
-	}
-
-	public getInstance(): FirebaseService {
-		return this._instance;
 	}
 
 	public async signInWithGoogle(): Promise<string> {

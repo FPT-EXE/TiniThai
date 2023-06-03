@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography'
 import { CardActionArea, CardActions, Grid, IconButton, Tooltip } from '@mui/material'
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart'
 
+import CourseThumbnail from '../../../assets/images/CourseThumbnail.jpg'
 import { Course } from '../../../shared/common/types'
 
 
@@ -20,7 +21,7 @@ export default function MultiActionAreaCard(course: Course) {
 				<CardMedia
 					component="img"
 					height="140"
-					image={course.img ? course.img : '/static/images/cards/contemplative-reptile.jpg'}
+					image={course.img ? course.img : CourseThumbnail}
 					alt="green iguana"
 				/>
 				<CardContent>

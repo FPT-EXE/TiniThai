@@ -9,13 +9,12 @@ import theme from './shared/theme/CustomMUI'
 import App from './App'
 
 
-
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-	// <React.StrictMode>
-	<Provider store={store}>
-		<ThemeProvider theme={theme}>
-			<App />
-		</ThemeProvider>
-	</Provider>
-// </React.StrictMode>
+	<React.StrictMode>
+		<Provider store={store}>
+			<ThemeProvider theme={theme}>
+				<App />
+			</ThemeProvider>
+		</Provider>
+	</React.StrictMode>
 )

@@ -3,7 +3,7 @@ import { Paper } from '@mui/material';
 import styled from 'styled-components';
 
 
-export const Login = styled.body`
+export const Login = styled.div`
   height: 100vh;
   display: flex;
   align-items: center;
