@@ -6,13 +6,8 @@ import './assets/styles/app.scss'
 import Home from './pages/Home/Home'
 import Login from './pages/Login/Login'
 import Layout from './shared/components/Layout'
-import firebaseConfig from './shared/configurations/firebaseConfig'
 
 
-console.log(firebaseConfig)
-console.log(firebaseConfig)
-console.log(firebaseConfig)
-console.log(firebaseConfig)
 const App: FC = () => {
 	return (
 		<Fragment>
