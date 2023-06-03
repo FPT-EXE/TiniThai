@@ -7,6 +7,7 @@ export const Login = styled.div`
   height: 100vh;
   display: flex;
   align-items: center;
+  background: rgba(209, 185, 220, 0.3);
 `;
 
 export const Form = styled.div`

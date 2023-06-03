@@ -12,11 +12,9 @@ export const Home = styled.body`
 
 export const Carousel = styled(Box)`
   background-color: #d1b9dc;
-  width: 80%;
   height: 40vh;
   display: flex;
   justify-content: center;
-  margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
   ${down('md')} {

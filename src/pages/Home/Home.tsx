@@ -6,7 +6,6 @@ import { useBreakpoint } from 'styled-breakpoints/react-styled'
 import welcomeImg from '../../assets/images/welcomeImg.svg'
 import { Course } from '../../shared/common/types'
 
-import HeaderLandingPage from './Header/Header'
 import MultiActionAreaCard from './CardMedia'
 import * as Styled from './styles'
 
@@ -50,7 +49,6 @@ const Home = () => {
 	return (
 		<div>
 			<Styled.Home>
-				<HeaderLandingPage />
 				<Styled.Carousel>
 					<Styled.ContentCarousel
 						container
