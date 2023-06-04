@@ -33,8 +33,6 @@ jobs:
         run: |
           yarn install --frozen-lockfile --network-timeout 1000000000
       - name: Build
-        env:
-          PUBLIC_FIREBASE_API_KEY: ${{ secrets.PUBLIC_FIREBASE_API_KEY }}
         run: |
           yarn build
       - uses: FirebaseExtended/action-hosting-deploy@v0

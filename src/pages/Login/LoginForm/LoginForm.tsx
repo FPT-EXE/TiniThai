@@ -5,7 +5,6 @@ import { up } from 'styled-breakpoints'
 import login from '../../../assets/images/login.svg'
 import GoogleIcon from '../../../assets/images/GoogleLogo.svg'
 import firebaseSvc from '../../../shared/services/FirebaseService'
-import { setCookie } from '../../../shared/utils'
 
 import * as Styled from './styles'
 
@@ -18,7 +17,6 @@ const LoginForm = () => {
 			console.log('Failed to sign in Google')
 			return
 		}
-		setCookie('access_token', token, 1/24)
 	}
 	return (
 		<Styled.PaperLogin>
