@@ -17,7 +17,6 @@ class FirebaseService {
 	public async signInWithGoogle(): Promise<string> {
 		const provider = new GoogleAuthProvider();
 		provider.addScope('email profile openid');
-
 		const result = await signInWithPopup(this._auth, provider);
 		return result.user.getIdToken();
 	}
@@ -38,7 +37,6 @@ class FirebaseService {
 			prompt: 'consent'
 		});
 		provider.addScope('openid email profile');
-
 		const result = await signInWithPopup(this._auth, provider);
 		return result.user.getIdToken();
 	}

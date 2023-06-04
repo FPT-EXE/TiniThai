@@ -5,9 +5,16 @@ import { up } from 'styled-breakpoints'
 import login from '../../../assets/images/login.svg'
 import GoogleIcon from '../../../assets/images/GoogleLogo.svg'
 import firebaseSvc from '../../../shared/services/FirebaseService'
+import client from '../../../shared/rest/RestService'
+import { setCookie } from '../../../shared/utils'
 
 import * as Styled from './styles'
 
+
+const doLogin = (token: string) => {
+	setCookie('access_token', token, 1/24)
+	client.setAuth(token)
+}
 
 const LoginForm = () => {
 	const isScreenLarge: boolean | null = useBreakpoint(up('md'))
@@ -16,7 +23,8 @@ const LoginForm = () => {
 		if (!token) {
 			console.log('Failed to sign in Google')
 			return
-		} // await doLogin(token)
+		}
+		doLogin(token)
 	}
 	return (
 		<Styled.PaperLogin>
