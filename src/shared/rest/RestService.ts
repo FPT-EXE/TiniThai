@@ -1,5 +1,7 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 
+import { getCookie } from '../utils';
+
 
 export type AxiosInitOptions = {
 	header?: Record<string, string>,
@@ -9,6 +11,7 @@ export type AxiosInitOptions = {
 const AUTHORIZATION = 'Authorization';
 const CONTENT_TYPE = 'Content-Type';
 const CONTENT_TYPE_JSON = 'application/json';
+const ACCESS_TOKEN = 'access_token';
 
 class RestService {
 	private readonly _axiosInstance: AxiosInstance;
@@ -44,7 +47,8 @@ class RestService {
 		};
 	}
 
-	public setAuth(token: string) {
+	private _setAuth() {
+		const token = getCookie(ACCESS_TOKEN) || '';
 		this._axiosInstance.interceptors.request.use(this._createAuthInterceptor(token));
 	}
 
@@ -52,6 +56,7 @@ class RestService {
 		url: string,
 		payload: TQuery
 	): Promise<AxiosResponse> {
+		this._setAuth();
 		return this._axiosInstance.get(url, {
 			params: { isAuthenticationRequired: true, ...payload },
 		});
@@ -61,6 +66,7 @@ class RestService {
 		url: string,
 		payload: TBody
 	): Promise<AxiosResponse> {
+		this._setAuth();
 		return this._axiosInstance.post(url, payload, {
 			params: { isAuthenticationRequired: true },
 		});
@@ -70,6 +76,7 @@ class RestService {
 		url: string,
 		payload: TBody
 	): Promise<AxiosResponse> {
+		this._setAuth();
 		return this._axiosInstance.put(url, payload, {
 			params: { isAuthenticationRequired: true },
 		});
@@ -79,6 +86,7 @@ class RestService {
 		url: string,
 		payload: TQuery
 	): Promise<AxiosResponse> {
+		this._setAuth();
 		return this._axiosInstance.delete(url, {
 			params: { isAuthenticationRequired: true, ...payload },
 		});
