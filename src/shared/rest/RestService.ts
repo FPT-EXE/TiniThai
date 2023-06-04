@@ -15,6 +15,7 @@ const ACCESS_TOKEN = 'access_token';
 
 class RestService {
 	private readonly _axiosInstance: AxiosInstance;
+	private _token?: string;
 
 	constructor() {
 		this._axiosInstance = this._initializeAxios({});
@@ -47,16 +48,23 @@ class RestService {
 		};
 	}
 
-	private _setAuth() {
-		const token = getCookie(ACCESS_TOKEN) || '';
-		this._axiosInstance.interceptors.request.use(this._createAuthInterceptor(token));
+	private _setAuthorizationHeader() {
+		if (this._token) {
+			return;
+		}
+		this._token = getCookie(ACCESS_TOKEN);
+		if (!this._token) {
+			console.error('null token');
+			return;
+		}
+		this._axiosInstance.interceptors.request.use(this._createAuthInterceptor(this._token));
 	}
 
 	public async get<TQuery = object>(
 		url: string,
 		payload: TQuery
 	): Promise<AxiosResponse> {
-		this._setAuth();
+		this._setAuthorizationHeader();
 		return this._axiosInstance.get(url, {
 			params: { isAuthenticationRequired: true, ...payload },
 		});
@@ -66,7 +74,7 @@ class RestService {
 		url: string,
 		payload: TBody
 	): Promise<AxiosResponse> {
-		this._setAuth();
+		this._setAuthorizationHeader();
 		return this._axiosInstance.post(url, payload, {
 			params: { isAuthenticationRequired: true },
 		});
@@ -76,7 +84,7 @@ class RestService {
 		url: string,
 		payload: TBody
 	): Promise<AxiosResponse> {
-		this._setAuth();
+		this._setAuthorizationHeader();
 		return this._axiosInstance.put(url, payload, {
 			params: { isAuthenticationRequired: true },
 		});
@@ -86,7 +94,7 @@ class RestService {
 		url: string,
 		payload: TQuery
 	): Promise<AxiosResponse> {
-		this._setAuth();
+		this._setAuthorizationHeader();
 		return this._axiosInstance.delete(url, {
 			params: { isAuthenticationRequired: true, ...payload },
 		});
