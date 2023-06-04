@@ -48,6 +48,11 @@ class RestService {
 		};
 	}
 
+	public setAuthorizationHeader(token: string) {
+		this._token = token;
+		this._axiosInstance.interceptors.request.use(this._createAuthInterceptor(token));
+	}
+
 	private _setAuthorizationHeader() {
 		if (this._token) {
 			return;
@@ -62,7 +67,7 @@ class RestService {
 
 	public async get<TQuery = object>(
 		url: string,
-		payload: TQuery
+		payload?: TQuery
 	): Promise<AxiosResponse> {
 		this._setAuthorizationHeader();
 		return this._axiosInstance.get(url, {
@@ -72,7 +77,7 @@ class RestService {
 
 	public async post<TBody = object>(
 		url: string,
-		payload: TBody
+		payload?: TBody
 	): Promise<AxiosResponse> {
 		this._setAuthorizationHeader();
 		return this._axiosInstance.post(url, payload, {
@@ -82,7 +87,7 @@ class RestService {
 
 	public async put<TBody = object>(
 		url: string,
-		payload: TBody
+		payload?: TBody
 	): Promise<AxiosResponse> {
 		this._setAuthorizationHeader();
 		return this._axiosInstance.put(url, payload, {
@@ -92,7 +97,7 @@ class RestService {
 
 	public async Delete<TQuery = object>(
 		url: string,
-		payload: TQuery
+		payload?: TQuery
 	): Promise<AxiosResponse> {
 		this._setAuthorizationHeader();
 		return this._axiosInstance.delete(url, {
