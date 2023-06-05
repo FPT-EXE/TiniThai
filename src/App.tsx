@@ -3,8 +3,9 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 
 import './assets/styles/app.css'
 import './assets/styles/app.scss'
-import CourseDetail from './pages/Course/CourseDetail'
+import CourseDetail from './pages/CourseDetail'
 import Home from './pages/Home/Header'
+import LessonDetail from './pages/LessonDetail'
 import Login from './pages/Login/Login'
 
 
@@ -21,6 +22,8 @@ const App: FC = () => {
 						}}
 						action={() => {}}
 						Component={CourseDetail} />
+					<Route   path="/lessons/:lessonId"
+						Component={LessonDetail} />
 				</Routes>
 			</BrowserRouter>
 		</Fragment>
