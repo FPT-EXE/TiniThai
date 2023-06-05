@@ -22,6 +22,9 @@ declare module '@mui/material/styles/createPalette' {
 }
 
 const theme = createTheme({
+	typography: {
+		fontFamily: 'Poppins, Inter',
+	},
 	palette: {
 		primary: {
 			main: '#D1B9DC',
@@ -81,6 +84,7 @@ const theme = createTheme({
 			xl: 1200,
 		},
 	},
+	
 });
 
 export default theme;
