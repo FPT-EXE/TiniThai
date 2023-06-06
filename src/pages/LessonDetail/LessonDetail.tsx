@@ -4,7 +4,7 @@ import { Box, Button, Typography } from '@mui/material'
 import { useState } from 'react'
 
 import QuestionImage1 from '../../assets/images/QuestionImage1.png'
-import { initializeAxios } from '../../shared/rest/axiosUtils'
+// import { initializeAxios } from '../../shared/rest/axiosUtils'
 
 import {
 	AnswerChoice,

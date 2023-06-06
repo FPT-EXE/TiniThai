@@ -45,6 +45,9 @@ export const LessonGridContainer = styled(Grid)`
   align-items: center;
   gap: 20px;
   max-width: 552px;
+  max-height: 382px;
+  overflow-y: scroll;
+
 `;
 
 export const LessonGridItem = styled(Grid)`

@@ -68,6 +68,19 @@ const lessons = [
 		bgColor: '#FF4B4C',
 		progressColor: 'linear-gradient(270deg, #D72714 -36.71%, #9D1515 167.09%)',
 	},
+	{
+		title: 'Tata Pengucapan',
+		image: Lesson3,
+		time: {
+			hours: 1,
+			minute: 10,
+		},
+		level: 4,
+		currentProgress: 5,
+		totalProgress: 25,
+		bgColor: '#FF4B4C',
+		progressColor: 'linear-gradient(270deg, #D72714 -36.71%, #9D1515 167.09%)',
+	},
 ]
 
 const CourseDetail = () => {
