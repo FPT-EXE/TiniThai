@@ -59,8 +59,8 @@ export const QuestionBox = styled(Stack)`
 `;
 
 export const QuestionText = styled(Typography)`
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
   text-align: center;
   ${down('md')} {
   }
@@ -68,12 +68,12 @@ export const QuestionText = styled(Typography)`
 
 export const QuestionImage = styled.img`
   width: 100%;
-  max-width: 300px;
+  max-width: 250px;
   height: auto;
   padding-bottom: 5rem;
   border-radius: 50%;
   ${down('md')} {
-    max-width: 250px;
+    max-width: 200px;
   }
 `;
 

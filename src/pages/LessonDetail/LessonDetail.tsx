@@ -178,7 +178,7 @@ const LessonDetail = () => {
                   Next
 									</Button>
 								</FlexBetween>							
-								<Typography fontSize={{xs:'1.75rem', md:'2.5rem'}} textAlign={'center'}>
+								<Typography fontSize={{xs:'1.5rem', md:'2rem'}} textAlign={'center'}>
 									{quiz.questionTitle}
 								</Typography>
 							</QuestionTitle>
