@@ -73,6 +73,7 @@ class RestService {
 		this._setAuthorizationHeader();
 		return this._axiosInstance.get(url, {
 			params: { isAuthenticationRequired: true, ...payload },
+			withCredentials: true
 		});
 	}
 
@@ -83,6 +84,7 @@ class RestService {
 		this._setAuthorizationHeader();
 		return this._axiosInstance.post(url, payload, {
 			params: { isAuthenticationRequired: true },
+			withCredentials: true
 		});
 	}
 
@@ -92,17 +94,19 @@ class RestService {
 	): Promise<AxiosResponse> {
 		this._setAuthorizationHeader();
 		return this._axiosInstance.put(url, payload, {
-			params: { isAuthenticationRequired: true },
+			params: { isAuthenticationRequired: true,  },
+			withCredentials: true
 		});
 	}
 
-	public async Delete<TQuery = object>(
+	public async delete<TQuery = object>(
 		url: string,
 		payload?: TQuery
 	): Promise<AxiosResponse> {
 		this._setAuthorizationHeader();
 		return this._axiosInstance.delete(url, {
 			params: { isAuthenticationRequired: true, ...payload },
+			withCredentials: true
 		});
 	}
 }
