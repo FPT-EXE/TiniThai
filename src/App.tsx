@@ -11,6 +11,7 @@ import Layout from './shared/components/Layout'
 
 
 const App: FC = () => {
+	console.log('test')
 	return (
 		<Fragment>
 			<BrowserRouter>
