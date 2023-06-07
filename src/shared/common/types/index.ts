@@ -1,4 +1,5 @@
 export type Course = {
+	id?: string,
 	title: string,
 	alias: string,
 	img: string,

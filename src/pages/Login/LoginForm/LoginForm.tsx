@@ -32,7 +32,7 @@ const LoginForm = () => {
 					textDecoration: 'none'
 				}}
 			>
-              Welcome to Tiny Thai
+        Welcome to Tiny Thai
 			</Typography>
 			<Typography
 				variant='subtitle1'

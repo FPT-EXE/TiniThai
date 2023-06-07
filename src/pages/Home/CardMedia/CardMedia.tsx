@@ -10,9 +10,11 @@ import CourseThumbnail from '../../../assets/images/CourseThumbnail.jpg'
 import { Course } from '../../../shared/common/types'
 
 
-
-
-export default function MultiActionAreaCard(course: Course) {
+type CardCourse = {
+	course: Course,
+	handleAddToCart: () => void,
+}
+export default function MultiActionAreaCard({course, handleAddToCart} : CardCourse) {
 	console.log(course)
 	console.log(course ? course.title : 'hong')
 	return (
@@ -49,6 +51,7 @@ export default function MultiActionAreaCard(course: Course) {
 								size="large"
 								aria-label="add to cart"
 								color="secondary"
+								onClick={handleAddToCart}
 							>
 								<AddShoppingCartIcon />
 							</IconButton>

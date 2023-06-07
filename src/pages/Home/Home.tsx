@@ -1,10 +1,11 @@
-import React from 'react'
 import { Grid, Typography } from '@mui/material'
 import { up } from 'styled-breakpoints'
 import { useBreakpoint } from 'styled-breakpoints/react-styled'
+import { useDispatch } from 'react-redux'
 
 import welcomeImg from '../../assets/images/welcomeImg.svg'
 import { Course } from '../../shared/common/types'
+import { addToCart } from '../../shared/slices/cartSlice'
 
 import MultiActionAreaCard from './CardMedia'
 import * as Styled from './styles'
@@ -45,6 +46,10 @@ const courses: Course[] = [
 
 const Home = () => {
 	const isScreenLarge: boolean | null = useBreakpoint(up('md'))
+	const dispatch = useDispatch()
+	const handleAddToCart = (course: Course) => {
+		dispatch(addToCart(course))
+	}
 
 	return (
 		<div>
@@ -88,7 +93,7 @@ const Home = () => {
 					<Grid container spacing={2}>
 						{courses.map((course, index) => (
 							<Grid key={index} item xs={12} sm={4} md={4}>
-								<MultiActionAreaCard {...course} />
+								<MultiActionAreaCard course={course} handleAddToCart={() => handleAddToCart(course)} />
 							</Grid>
 						))}
 					</Grid>
