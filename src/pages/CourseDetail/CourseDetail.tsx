@@ -5,9 +5,10 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
 import { useState } from 'react'
 
 import courseDetailmg from '../../assets/images/CourseDetail.png'
-import Lesson1 from '../../assets/images/Lesson1.png'
-import Lesson2 from '../../assets/images/Lesson2.png'
-import Lesson3 from '../../assets/images/Lesson3.png'
+import { useAppDispatch, useAppSelector } from '../../shared/stores/hooks'
+import { Lesson } from '../../shared/common/types'
+import { setCurrentLesson } from '../../shared/stores/slices/lessonSlice'
+import { lessonColors, lessons } from '../../shared/common/constants/data'
 
 import {
 	CourseDetailButton,
@@ -28,51 +29,23 @@ import {
 import LessonModal from './LessonModal'
 
 
-const lessons = [
-	{
-		title: 'Perkenalan',
-		image: Lesson1,
-		time: {
-			hours: 1,
-			minute: 30,
-		},
-		level: 1,
-		currentProgress: 9,
-		totalProgress: 50,
-		bgColor: '#8BC34A',
-		progressColor: 'linear-gradient(270deg, #8BC34A -36.71%, #11998E 167.09%)',
-	},
-	{
-		title: 'Tata Bahasa',
-		image: Lesson2,
-		time: {
-			hours: 1,
-			minute: 45,
-		},
-		level: 2,
-		currentProgress: 5,
-		totalProgress: 40,
-		bgColor: '#FBB237',
-		progressColor: 'linear-gradient(270deg, #FFA000 -36.71%, #BB6414 167.09%)',
-	},
-	{
-		title: 'Cara Pengucapan',
-		image: Lesson3,
-		time: {
-			hours: 1,
-			minute: 10,
-		},
-		level: 3,
-		currentProgress: 12,
-		totalProgress: 50,
-		bgColor: '#FF4B4C',
-		progressColor: 'linear-gradient(270deg, #D72714 -36.71%, #9D1515 167.09%)',
-	},
-]
+const getLessonColor = (lesson: Lesson, isLinear?: boolean): string => {
+	const lastIndex = lessonColors.length
+	let resultColor: string = lessonColors[lastIndex - 1].bgColor
+	lessonColors.map((color) => {
+		if (lesson.level === color.level) {
+			if (isLinear) resultColor = color.progressColor
+			else resultColor = color.bgColor
+		}
+	})
+	return resultColor
+}
 
 const CourseDetail = () => {
 	// const { courseId } = useParams()
 	const [isOpenModal, setIsOpenModal] = useState(false)
+	const currentLesson = useAppSelector((state) => state.lesson.currentLesson)
+	const dispatch = useAppDispatch()
 	return (
 		<>
 			<Stack justifyContent={'center'} minHeight="100vh">
@@ -83,10 +56,10 @@ const CourseDetail = () => {
 					</CourseDetailImageSection>
 					<LessonSection>
 						<LessonGridContainer container>
-							{lessons.slice(0.3).map((lesson) => (
+							{lessons.slice(0.3).map((lesson: Lesson) => (
 								<LessonGridItem
 									item
-									key={lesson.title}
+									key={lesson.name}
 									xs={12}
 									sx={{
 										':hover': {
@@ -97,12 +70,15 @@ const CourseDetail = () => {
 											transform: 'scale(1.05)',
 										},
 									}}
-									onClick={()=> setIsOpenModal(true)}
+									onClick={() => {
+										dispatch(setCurrentLesson(lesson))
+										setIsOpenModal(true)
+									}}
 								>
 									<LessonItem>
 										<LessonImageBox
 											sx={{
-												backgroundColor: lesson.bgColor,
+												backgroundColor: getLessonColor(lesson),
 											}}
 										>
 											<LessonImage src={lesson.image} />
@@ -116,17 +92,17 @@ const CourseDetail = () => {
 										</LessonImageBox>
 										<LessonInfoSection>
 											<Typography fontWeight={500} fontSize="17px">
-												{lesson.title}
+												{lesson.name}
 											</Typography>
 											<Typography
 												fontSize={'10px'}
 												color="#50555C"
-											>{`${lesson.time.hours} jam ${lesson.time.minute} menit`}</Typography>
+											>{`${lesson.time.hour} jam ${lesson.time.minute} menit`}</Typography>
 											<LessonProgress
 												sx={{
 													backgroundColor: '#E5E5E5',
 													'& .MuiLinearProgress-bar': {
-														background: lesson.progressColor,
+														background: getLessonColor(lesson, true),
 														borderRadius: '5px',
 													},
 												}}
@@ -155,7 +131,11 @@ const CourseDetail = () => {
 					</LessonSection>
 				</CourseDetailFlex>
 			</Stack>
-			<LessonModal handleClose={()=> setIsOpenModal(false)} isOpenModal={isOpenModal} />
+			<LessonModal
+				lesson={currentLesson}
+				handleClose={() => setIsOpenModal(false)}
+				isOpenModal={isOpenModal}
+			/>
 		</>
 	)
 }

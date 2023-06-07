@@ -17,21 +17,14 @@ const App: FC = () => {
 				<Routes>
 					<Route path="/" element={<Navigate to="/login" />} />
 					<Route path="/login" Component={Login} />
-					<Route
-						path="/home"
-						element={
-							<Layout>
-								<Home />
-							</Layout>
-						}
-					/>
-					<Route
-						path="/courses/:courseId"
-						loader={() => {}}
+					<Route path="/home" Component={Home} />
+					<Route   path="/courses/:courseId"
+						loader={() => {
+						}}
 						action={() => {}}
-						Component={CourseDetail}
-					/>
-					<Route path="/lessons/:lessonId" Component={LessonDetail} />
+						Component={CourseDetail} />
+					<Route   path="/lessons/:lessonId"
+						Component={LessonDetail} />
 				</Routes>
 			</BrowserRouter>
 		</Fragment>

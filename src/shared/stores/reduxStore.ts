@@ -1,8 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 
+import lessonSlice from './slices/lessonSlice';
+
 
 export const store = configureStore({
-	reducer: {}
+	reducer: {
+		lesson: lessonSlice,
+	}
 });
 
 export type AppState = ReturnType<typeof store.getState>

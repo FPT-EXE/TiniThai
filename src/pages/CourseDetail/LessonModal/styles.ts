@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 
 export const LessonModalBox = styled(Box)`
+  min-width: 30vw;
  	position: absolute;
   top: 50%;
   left: 50%;
