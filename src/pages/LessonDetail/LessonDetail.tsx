@@ -14,14 +14,17 @@ import {
 	setLessonAnswers,
 } from '../../shared/stores/slices/lessonSlice'
 import { LessonAnswer } from '../../shared/common/types'
+import { QuestionTypeEnum } from '../../shared/common/constants'
 
 import {
 	AnswerChoice,
+	FlexBetween,
 	GridContainer,
 	GridItem,
 	LessonDetailContainer,
 	QuestionBox,
 	QuestionImage,
+	QuestionText,
 	QuestionTitle,
 	ResultBox,
 	ResultContent,
@@ -32,15 +35,16 @@ import {
 
 type ResultProps = {
 	isCorrect: boolean,
+	correctAnswer: string,
 };
 
-const Result = ({ isCorrect }: ResultProps) => {
+const Result = ({ isCorrect, correctAnswer }: ResultProps) => {
 	return (
 		<ResultBox sx={{ backgroundColor: isCorrect ? '#F5FFD8' : '#FFDDD8' }}>
 			<ResultContent>
 				<Box color={isCorrect ? 'secondary.main' : 'error.main'}>
-					<Typography>คุณถูก!</Typography>
-					<Typography>คำตอบ : จมูก</Typography>
+					<Typography fontSize={'1.5rem'}>{isCorrect ? 'ยินดีด้วย!' : 'อ๊ะ.. ดูเหมือนจะไม่ถูก'}</Typography>
+					<Typography>ตอบถูก! : {correctAnswer ? correctAnswer : 'จมูก'}</Typography>
 				</Box>
 				{/* <Button
 					variant={'contained'}
@@ -164,25 +168,30 @@ const LessonDetail = () => {
 							key={quiz.quizNum}
 							display={quiz.quizNum === activeStep + 1 ? 'flex' : 'none'}
 						>
-							<QuestionTitle direction="row">
-								<Button startIcon={<ArrowBackIosIcon />} onClick={handleBack}>
+							<QuestionTitle>
+								<FlexBetween>
+									<Button startIcon={<ArrowBackIosIcon />} onClick={handleBack}>
                   Back
-								</Button>
-								<Typography fontSize="2vw" textAlign={'center'}>
+									</Button>
+						
+									<Button endIcon={<ArrowForwardIosIcon />} onClick={handleNext}>
+                  Next
+									</Button>
+								</FlexBetween>							
+								<Typography fontSize={{xs:'1.75rem', md:'2.5rem'}} textAlign={'center'}>
 									{quiz.questionTitle}
 								</Typography>
-								<Button endIcon={<ArrowForwardIosIcon />} onClick={handleNext}>
-                  Next
-								</Button>
 							</QuestionTitle>
-
-							<QuestionImage
+							{quiz.questionType === QuestionTypeEnum.IMAGETOWORD ? <QuestionImage
 								src={
 									quiz.questionImage !== ''
 										? quiz.questionImage
 										: QuestionImage1
 								}
-							/>
+							/> : <QuestionText fontSize={'2.5rem'}>{quiz.questionProblem}</QuestionText>
+
+							}
+							
 							<GridContainer container rowSpacing={1} columnSpacing={10}>
 								{quiz.answers.map((ans) => (
 									<GridItem item xs={6} key={ans}>
@@ -206,7 +215,7 @@ const LessonDetail = () => {
 								))}
 							</GridContainer>
 							{currentChoice != '' ? (
-								<Result isCorrect={currentChoice === quiz.correctAnswer} />
+								<Result isCorrect={currentChoice === quiz.correctAnswer} correctAnswer={quiz.correctAnswer} />
 							) : (
 								<ResultBox />
 							)}

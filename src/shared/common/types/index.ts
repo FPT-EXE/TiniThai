@@ -25,6 +25,7 @@ export type Lesson = {
 export type Quiz = {
 	quizNum: number,
 	questionTitle: string,
+	questionProblem: string,
 	questionImage: string,
 	questionType: number,
 	answers: string[],

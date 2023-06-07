@@ -1,5 +1,5 @@
 /* eslint-disable import/no-named-as-default */
-import { Box, Grid, Stack } from '@mui/material';
+import { Box, Grid, Stack, Typography } from '@mui/material';
 import { down } from 'styled-breakpoints';
 import styled from 'styled-components';
 
@@ -10,8 +10,9 @@ export const LessonDetailContainer = styled(Stack)`
   width: 100%;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
   ${down('md')} {
-    padding: 1rem 0rem;
+    padding: 1rem 0.5rem;
   }
 `;
 
@@ -38,6 +39,15 @@ export const QuestionTitle = styled(Stack)`
   }
 `;
 
+export const FlexBetween = styled(Box)`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  ${down('md')} {
+  }
+`;
+
 export const QuestionBox = styled(Stack)`
   width: 50%;
   justify-content: center;
@@ -48,12 +58,22 @@ export const QuestionBox = styled(Stack)`
   }
 `;
 
-export const QuestionImage = styled.img`
+export const QuestionText = styled(Typography)`
   width: 300px;
   height: 300px;
+  text-align: center;
+  ${down('md')} {
+  }
+`;
+
+export const QuestionImage = styled.img`
+  width: 100%;
+  max-width: 300px;
+  height: auto;
   padding-bottom: 5rem;
   border-radius: 50%;
   ${down('md')} {
+    max-width: 250px;
   }
 `;
 
@@ -62,6 +82,7 @@ export const GridContainer = styled(Grid)`
 
   justify-content: space-between;
   ${down('md')} {
+    min-height: 25vh;
   }
 `;
 
