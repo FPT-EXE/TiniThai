@@ -13,41 +13,41 @@ import MultiActionAreaCard from './CardMedia'
 import * as Styled from './styles'
 
 
-const courses: Course[] = [
-	{
-		id: '1',
-		title: '1914 translation by H. Rackham',
-		img: '',
-		description:
-      'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system',
-		price: 400,
-		alias: 'Tieng Thai 1',
-		degreeOfDifficulty: 7,
-		rating: 4.5
-	},
-	{
-		id: '2',
-		title: '1914 translation by H. Rackham',
-		img: '',
-		description:
-      'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system',
-		price: 450,
-		alias: 'Tieng Thai 2',
-		degreeOfDifficulty: 8,
-		rating: 4.4
-	},
-	{
-		id: '3',
-		title: '1914 translation by H. Rackham',
-		img: '',
-		description:
-      'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system',
-		price: 500,
-		alias: 'Tieng Thai 3',
-		degreeOfDifficulty: 9,
-		rating: 4.8
-	},
-]
+// const courses: Course[] = [
+// 	{
+// 		id: '1',
+// 		title: '1914 translation by H. Rackham',
+// 		img: '',
+// 		description:
+//       'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system',
+// 		price: 400,
+// 		alias: 'Tieng Thai 1',
+// 		degreeOfDifficulty: 7,
+// 		rating: 4.5
+// 	},
+// 	{
+// 		id: '2',
+// 		title: '1914 translation by H. Rackham',
+// 		img: '',
+// 		description:
+//       'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system',
+// 		price: 450,
+// 		alias: 'Tieng Thai 2',
+// 		degreeOfDifficulty: 8,
+// 		rating: 4.4
+// 	},
+// 	{
+// 		id: '3',
+// 		title: '1914 translation by H. Rackham',
+// 		img: '',
+// 		description:
+//       'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system',
+// 		price: 500,
+// 		alias: 'Tieng Thai 3',
+// 		degreeOfDifficulty: 9,
+// 		rating: 4.8
+// 	},
+// ]
 
 const Home = () => {
 	const isScreenLarge: boolean | null = useBreakpoint(up('md'))
@@ -56,7 +56,7 @@ const Home = () => {
 		dispatch(addToCart(course))
 	}
 
-	// const courses: Course[] = useAppSelector(({ course }) => course.courseList)
+	const courses: Course[] = useAppSelector(({ course }) => course.courseList)
 	useEffect(() => {
 		dispatch(coursesFetch())
 		// console.log(courses)

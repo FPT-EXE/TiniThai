@@ -37,6 +37,9 @@ class RestService {
 	): Record<string, string> {
 		const header: Record<string, string> = {};
 		header[CONTENT_TYPE] = CONTENT_TYPE_JSON;
+		header['Access-Control-Allow-Origin'] = '*';
+		header['Access-Control-Allow-Methods'] = 'DELETE, POST, GET, OPTIONS';
+		header['Access-Control-Allow-Headers'] = 'Content-Type, Authorization, X-Requested-With';
 		header[NGROK_IGNORE] = 'true';
 		return { ...header, ...additionalHeaders };
 	}
