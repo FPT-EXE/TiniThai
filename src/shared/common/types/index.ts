@@ -8,6 +8,13 @@ export type Course = {
 	degreeOfDifficulty: number,
 };
 
+export type MCourse = {
+	id: number,
+	title: string,
+	progress: number,
+	image: string,
+}
+
 export type Lesson = {
 	id: number,
 	time: {
@@ -20,6 +27,8 @@ export type Lesson = {
 	currentProgress: number,
 	totalProgress: number,
 	quizzes: Quiz[],
+	lectures: Lecture[],
+	type: string,
 };
 
 export type Quiz = {
@@ -32,6 +41,13 @@ export type Quiz = {
 	correctAnswer: string,
 };
 
+export type Lecture = {
+	lectureNum: number,
+	consonant: string,
+	symbol: string,
+	spelling: string,
+	meaning: string,
+};
 // export type LessonAnswer = {
 // 	lessonId: number,
 // 	quizAnswers: {

@@ -1,0 +1,40 @@
+
+.dots_bar {
+	border-radius: 40px;  
+	width: 100%;
+	text-align: center;
+	margin: 5px 0 0 0;
+	position: relative;
+	bottom: 3rem;
+  }
+  
+  .dots_bar li {
+	list-style: none;
+	cursor: pointer;
+	display: inline-block;
+	margin: 0 10px;
+  
+  }
+  
+  .dots_bar li button {
+	border: none;
+	background: #022C594D;
+	color: transparent;
+	cursor: pointer;
+	display: block;
+	height: 10px;
+	width: 10px;
+	border-radius: 50%;
+  }
+  
+  .dots_bar :global(li.slick-active) button {
+	background-color: #D1B9DC;
+  }
+  
+  .dots_bar li button:hover,
+  .dots_bar li button:focus {
+	background: #D1B9DC;
+	outline: 0;
+  }
+  
+  

@@ -1,8 +1,10 @@
 /* eslint-disable max-lines-per-function */
-import { Stack, Typography } from '@mui/material'
+import { Button, Stack, Typography } from '@mui/material'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
 // import {  useParams } from 'react-router-dom'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import courseDetailmg from '../../assets/images/CourseDetail.png'
 import { useAppDispatch, useAppSelector } from '../../shared/stores/hooks'
@@ -45,6 +47,7 @@ const CourseDetail = () => {
 	// const { courseId } = useParams()
 	const [isOpenModal, setIsOpenModal] = useState(false)
 	const currentLesson = useAppSelector((state) => state.lesson.currentLesson)
+	const navigate = useNavigate()
 	const dispatch = useAppDispatch()
 	return (
 		<>
@@ -129,8 +132,10 @@ const CourseDetail = () => {
               Mulai Belajar
 						</CourseDetailButton>
 					</LessonSection>
-				</CourseDetailFlex>
+				</CourseDetailFlex>		
+				<Button sx={{paddingTop: '2rem'}} startIcon={<ArrowBackIosIcon />} onClick={() => navigate('/courses')}>Back To Course</Button>					
 			</Stack>
+		
 			<LessonModal
 				lesson={currentLesson}
 				handleClose={() => setIsOpenModal(false)}
