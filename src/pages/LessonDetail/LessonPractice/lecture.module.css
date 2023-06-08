@@ -1,0 +1,45 @@
+.displayCard {
+	transition: all 1s ease-in-out;
+	opacity: 1;
+	position: absolute;
+	top: 35vh;
+	z-index: 99;
+	right: 40%;
+}
+
+.displayCard p{
+	opacity: 1;
+}
+
+.hideCardAnimate {
+	animation-name: moving;
+	animation-duration: 1s;
+	animation-direction: alternate;
+}
+
+.hideCard {
+	transition: all 1s ease-in-out;
+	opacity: 1;
+	position: absolute;
+	top: 32vh;
+	right: 38%;
+	transform: scale(0.95);
+	z-index: calc(1 / var(--i) * 10);
+}
+
+.hideCard p{
+	transition: all 1.5s ease-in-out;
+	opacity: 0;
+}
+
+
+@keyframes moving {
+	from {		
+		right:38%;
+		opacity: 1;
+	  }
+	  to {
+		right: 60%;
+		opacity: 0;
+	  }
+  }

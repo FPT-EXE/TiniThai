@@ -11,9 +11,11 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import { Tooltip } from '@mui/material'
 import { useBreakpoint } from 'styled-breakpoints/react-styled'
 import { up } from 'styled-breakpoints'
+import { useNavigate } from 'react-router-dom'
 
 
 export default function MenuAppBar() {
+	const navigate = useNavigate()
 	const [isAuth] = React.useState(true)
 	const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
 
@@ -35,7 +37,7 @@ export default function MenuAppBar() {
 				} : {}
 			}>
 				<Toolbar>
-					<Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+					<Typography variant="h6" component="div" sx={{ flexGrow: 1, cursor:'pointer' }} onClick={()=> navigate('/home')}>
             TiniThai
 					</Typography>
 

@@ -8,7 +8,7 @@ export const LessonDetailContainer = styled(Stack)`
   padding: 1rem 2rem;
   min-height: 100vh;
   width: 100%;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   box-sizing: border-box;
   ${down('md')} {
@@ -59,8 +59,8 @@ export const QuestionBox = styled(Stack)`
 `;
 
 export const QuestionText = styled(Typography)`
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
   text-align: center;
   ${down('md')} {
   }
@@ -68,12 +68,12 @@ export const QuestionText = styled(Typography)`
 
 export const QuestionImage = styled.img`
   width: 100%;
-  max-width: 300px;
+  max-width: 250px;
   height: auto;
   padding-bottom: 5rem;
   border-radius: 50%;
   ${down('md')} {
-    max-width: 250px;
+    max-width: 200px;
   }
 `;
 
@@ -120,4 +120,30 @@ export const ResultContent = styled(Stack)`
   box-sizing: border-box;
   justify-content: center;
   gap: 5%;
+`;
+
+export const LectureContainer = styled(Stack)`
+  padding: 1rem 2rem;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  ${down('md')} {
+    padding: 1rem 0.5rem;
+  }
+`;
+
+export const LectureCard = styled(Stack)`
+  justify-content: center;
+  align-items: center;
+  width: 20rem;
+  height: 28rem;
+  border: solid 2px #000;
+  box-shadow: 0px 0px 10px -2px;
+  padding: 1rem 1rem;
+  background: linear-gradient(45deg, #C2CF7B 16.71%, #D1B9DC 60.09%);
+  ${down('md')} {
+    right: 8%;
+    /* padding: 1rem 0.5rem; */
+  }
 `;

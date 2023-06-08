@@ -1,7 +1,10 @@
-import { Lesson } from '../types';
+import { Lesson, MCourse } from '../types';
 import Lesson1 from '../../../assets/images/Lesson1.png';
 import Lesson2 from '../../../assets/images/Lesson2.png';
 import Lesson3 from '../../../assets/images/Lesson3.png';
+import Course1 from '../../../assets/images/course1.png';
+import Course2 from '../../../assets/images/course2.png';
+import Course3 from '../../../assets/images/course3.png';
 import Hen from '../../../assets/images/hen.png';
 import Mosquito from '../../../assets/images/mosquito.png';
 import Shrimp from '../../../assets/images/shrimp.png';
@@ -11,7 +14,8 @@ import { QuestionTypeEnum } from '.';
 
 export const lessons: Lesson[] = [
 	{
-		id:1,
+		id: 1,
+		type: 'quiz',
 		name: 'Perkenalan',
 		image: Lesson1,
 		time: {
@@ -21,6 +25,7 @@ export const lessons: Lesson[] = [
 		level: 1,
 		currentProgress: 9,
 		totalProgress: 50,
+		lectures: [],
 		quizzes: [
 			{
 				questionTitle:
@@ -58,7 +63,12 @@ export const lessons: Lesson[] = [
 				questionImage: '',
 				questionProblem: 'คุณชื่ออะไร?',
 				questionType: QuestionTypeEnum.TRANSLATE,
-				answers: ['Bạn có khỏe không?', 'Tên bạn là gì?', 'Bạn đến từ đâu?', 'Bạn bao nhiêu tuổi?'],
+				answers: [
+					'Bạn có khỏe không?',
+					'Tên bạn là gì?',
+					'Bạn đến từ đâu?',
+					'Bạn bao nhiêu tuổi?',
+				],
 				correctAnswer: 'Tên bạn là gì?',
 				quizNum: 4,
 			},
@@ -68,7 +78,7 @@ export const lessons: Lesson[] = [
 				questionImage: '',
 				questionProblem: 'ไม่เป็นไร',
 				questionType: QuestionTypeEnum.TRANSLATE,
-				answers: ['Cảm ơn bạn.', 'Không có gì.', 'Không sao.', 'Không có gì.'],
+				answers: ['Cảm ơn bạn.', 'Không có gì.', 'Không sao.', 'Không có chi.'],
 				correctAnswer: 'Không sao.',
 				quizNum: 5,
 			},
@@ -86,6 +96,7 @@ export const lessons: Lesson[] = [
 	},
 	{
 		id: 2,
+		type: 'lecture',
 		name: 'Tata Bahasa',
 		image: Lesson2,
 		time: {
@@ -95,71 +106,41 @@ export const lessons: Lesson[] = [
 		level: 2,
 		currentProgress: 5,
 		totalProgress: 40,
-		quizzes: [
+		lectures: [
 			{
-				questionTitle:
-          'Nhìn vào bức tranh dưới đây và chọn câu trả lời đúng: Đây là con vật gì?',
-				questionImage: Hen,
-				questionProblem: '',
-				questionType: QuestionTypeEnum.IMAGETOWORD,
-				answers: ['หมา', 'แมว', 'หมู', 'ไก่'],
-				correctAnswer: 'ไก่',
-				quizNum: 1,
+				lectureNum: 1,
+				consonant: 'ก',
+				symbol: 'ก ไก่',
+				spelling: 'ko kày',
+				meaning: 'con gà'			
 			},
 			{
-				questionTitle:
-          'Nhìn vào bức tranh dưới đây và chọn câu trả lời đúng: Đây là con vật gì?',
-				questionImage: Mosquito,
-				questionProblem: '',
-				questionType: QuestionTypeEnum.IMAGETOWORD,
-				answers: ['ควาย', 'กุ้ง', 'หมา', 'ปลา'],
-				correctAnswer: 'กุ้ง',
-				quizNum: 2,
+				lectureNum: 2,
+				consonant: 'ข',
+				symbol: 'ข ไข่',
+				spelling: 'khỏ khày',
+				meaning: 'quả trứng'			
 			},
 			{
-				questionTitle:
-          'Nhìn vào bức tranh dưới đây và chọn câu trả lời đúng: Đây là con vật gì?',
-				questionImage: Shrimp,
-				questionProblem: '',
-				questionType: QuestionTypeEnum.IMAGETOWORD,
-				answers: ['ยุง', 'นก', 'ม้า', 'งู'],
-				correctAnswer: 'ยุง',
-				quizNum: 3,
+				lectureNum: 3,
+				consonant: 'ฃ',
+				symbol: 'ฃ ขวด',
+				spelling: 'khỏ khuột',
+				meaning: 'cái chai, lọ'			
 			},
 			{
-				questionTitle:
-          'Nhìn vào mệnh đề dưới đây và chọn câu trả lời đúng: Câu giao tiếp',
-				questionImage: '',
-				questionProblem: 'คุณชื่ออะไร?',
-				questionType: QuestionTypeEnum.TRANSLATE,
-				answers: ['Bạn có khỏe không?', 'Tên bạn là gì?', 'Bạn đến từ đâu?', 'Bạn bao nhiêu tuổi?'],
-				correctAnswer: 'ยุง',
-				quizNum: 4,
-			},
-			{
-				questionTitle:
-          'Nhìn vào mệnh đề dưới đây và chọn câu trả lời đúng: Câu giao tiếp',
-				questionImage: '',
-				questionProblem: 'ไม่เป็นไร',
-				questionType: QuestionTypeEnum.TRANSLATE,
-				answers: ['Cảm ơn bạn.', 'Không có gì.', 'Không sao.', 'Không có gì.'],
-				correctAnswer: 'ยุง',
-				quizNum: 5,
-			},
-			{
-				questionTitle:
-          'Nhìn vào mệnh đề dưới đây và chọn câu trả lời đúng: Câu giao tiếp',
-				questionImage: '',
-				questionProblem: 'ฉันไม่รู้',
-				questionType: QuestionTypeEnum.TRANSLATE,
-				answers: ['Coi chừng!', 'Tôi đói.', 'Tôi khát', 'Tôi không biết.'],
-				correctAnswer: 'ยุง',
-				quizNum: 6,
+				lectureNum: 4,
+				consonant: 'ค',
+				symbol: 'ค ควาย',
+				spelling: 'kho khoai',
+				meaning: 'con trâu'			
 			},
 		],
+		quizzes: []
 	},
 	{
 		id: 3,
+		type: 'quiz',
 		name: 'Cara Pengucapan',
 		image: Lesson3,
 		time: {
@@ -169,10 +150,12 @@ export const lessons: Lesson[] = [
 		level: 3,
 		currentProgress: 12,
 		totalProgress: 50,
+		lectures: [],
 		quizzes: [],
 	},
 	{
 		id: 4,
+		type: 'lecture',
 		name: 'Tata Pengucapan',
 		image: Lesson3,
 		time: {
@@ -182,9 +165,32 @@ export const lessons: Lesson[] = [
 		level: 4,
 		currentProgress: 5,
 		totalProgress: 25,
+		lectures: [],
 		quizzes: [],
 	},
 ];
+
+export const courses : MCourse[] = [
+	{
+		id: 1,
+		title: 'Introductory Thai',
+		progress: 80,
+		image: Course1,
+	},
+	{
+		id: 2,
+		title: 'Advanced Thai',
+		progress: 10,
+		image: Course2,
+	},
+	{
+		id: 3,
+		title: 'Master Thai',
+		progress: 50,
+		image: Course3,
+	},
+];
+
 export const lessonColors = [
 	{
 		level: 1,
