@@ -12,6 +12,7 @@ export type MCourse = {
 	id: number,
 	title: string,
 	progress: number,
+	description: string,
 	image: string,
 }
 

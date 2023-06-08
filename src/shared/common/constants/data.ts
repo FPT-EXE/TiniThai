@@ -2,9 +2,10 @@ import { Lesson, MCourse } from '../types';
 import Lesson1 from '../../../assets/images/Lesson1.png';
 import Lesson2 from '../../../assets/images/Lesson2.png';
 import Lesson3 from '../../../assets/images/Lesson3.png';
-import Course1 from '../../../assets/images/course1.png';
-import Course2 from '../../../assets/images/course2.png';
+import Course1 from '../../../assets/images/course1.jpg';
+import Course2 from '../../../assets/images/course2.jpg';
 import Course3 from '../../../assets/images/course3.png';
+import CourseDetail1 from '../../../assets/images/coursedetail1.png';
 import Hen from '../../../assets/images/hen.png';
 import Mosquito from '../../../assets/images/mosquito.png';
 import Shrimp from '../../../assets/images/shrimp.png';
@@ -15,15 +16,59 @@ import { QuestionTypeEnum } from '.';
 export const lessons: Lesson[] = [
 	{
 		id: 1,
+		type: 'lecture',
+		name: 'Words',
+		image: Lesson2,
+		time: {
+			hour: 1,
+			minute: 30,
+		},
+		level: 2,
+		currentProgress: 20,
+		totalProgress: 40,
+		lectures: [
+			{
+				lectureNum: 1,
+				consonant: 'ก',
+				symbol: 'ก ไก่',
+				spelling: 'ko kày',
+				meaning: 'con gà'			
+			},
+			{
+				lectureNum: 2,
+				consonant: 'ข',
+				symbol: 'ข ไข่',
+				spelling: 'khỏ khày',
+				meaning: 'quả trứng'			
+			},
+			{
+				lectureNum: 3,
+				consonant: 'ฃ',
+				symbol: 'ฃ ขวด',
+				spelling: 'khỏ khuột',
+				meaning: 'cái chai, lọ'			
+			},
+			{
+				lectureNum: 4,
+				consonant: 'ค',
+				symbol: 'ค ควาย',
+				spelling: 'kho khoai',
+				meaning: 'con trâu'			
+			},
+		],
+		quizzes: []
+	},
+	{
+		id: 2,
 		type: 'quiz',
-		name: 'Perkenalan',
-		image: Lesson1,
+		name: 'Image quiz',
+		image: CourseDetail1,
 		time: {
 			hour: 1,
 			minute: 30,
 		},
 		level: 1,
-		currentProgress: 9,
+		currentProgress: 10,
 		totalProgress: 50,
 		lectures: [],
 		quizzes: [
@@ -95,60 +140,16 @@ export const lessons: Lesson[] = [
 		],
 	},
 	{
-		id: 2,
-		type: 'lecture',
-		name: 'Tata Bahasa',
-		image: Lesson2,
-		time: {
-			hour: 1,
-			minute: 30,
-		},
-		level: 2,
-		currentProgress: 5,
-		totalProgress: 40,
-		lectures: [
-			{
-				lectureNum: 1,
-				consonant: 'ก',
-				symbol: 'ก ไก่',
-				spelling: 'ko kày',
-				meaning: 'con gà'			
-			},
-			{
-				lectureNum: 2,
-				consonant: 'ข',
-				symbol: 'ข ไข่',
-				spelling: 'khỏ khày',
-				meaning: 'quả trứng'			
-			},
-			{
-				lectureNum: 3,
-				consonant: 'ฃ',
-				symbol: 'ฃ ขวด',
-				spelling: 'khỏ khuột',
-				meaning: 'cái chai, lọ'			
-			},
-			{
-				lectureNum: 4,
-				consonant: 'ค',
-				symbol: 'ค ควาย',
-				spelling: 'kho khoai',
-				meaning: 'con trâu'			
-			},
-		],
-		quizzes: []
-	},
-	{
 		id: 3,
 		type: 'quiz',
-		name: 'Cara Pengucapan',
-		image: Lesson3,
+		name: 'Comunication',
+		image: Lesson1,
 		time: {
 			hour: 1,
 			minute: 30,
 		},
 		level: 3,
-		currentProgress: 12,
+		currentProgress: 5,
 		totalProgress: 50,
 		lectures: [],
 		quizzes: [],
@@ -156,14 +157,14 @@ export const lessons: Lesson[] = [
 	{
 		id: 4,
 		type: 'lecture',
-		name: 'Tata Pengucapan',
+		name: 'Grammar',
 		image: Lesson3,
 		time: {
 			hour: 1,
 			minute: 10,
 		},
 		level: 4,
-		currentProgress: 5,
+		currentProgress: 0,
 		totalProgress: 25,
 		lectures: [],
 		quizzes: [],
@@ -173,21 +174,24 @@ export const lessons: Lesson[] = [
 export const courses : MCourse[] = [
 	{
 		id: 1,
-		title: 'Introductory Thai',
+		title: 'Start with the letter',
 		progress: 80,
 		image: Course1,
+		description:'Every language starts with the simplest things, let\'s start with the alphabet and some basic vocabulary selected by Tiny Thai!'
 	},
 	{
 		id: 2,
-		title: 'Advanced Thai',
-		progress: 10,
+		title: 'Get creative with vocabulary and grammar',
+		progress: 50,
 		image: Course2,
+		description: 'In this course, students will be introduced to vocabulary words and how to use them in different communication situations. In addition, the course also focuses on improving the ability to use simple grammar to convey ideas and information clearly and accurately.'
 	},
 	{
 		id: 3,
-		title: 'Master Thai',
-		progress: 50,
+		title: 'Fluent with vocabulary and grammar',
+		progress: 10,
 		image: Course3,
+		description: 'This course will help students improve their ability to use the Thai language and better understand the grammatical structure of the Thai language. At the same time, students will also be introduced to new vocabulary and how to use them in different communication situations.'
 	},
 ];
 
