@@ -84,7 +84,6 @@ class RestService {
 		this._setAuthorizationHeader();
 		return this._axiosInstance.post(url, payload, {
 			params: { isAuthenticationRequired: true },
-			withCredentials: true
 		});
 	}
 
@@ -95,7 +94,6 @@ class RestService {
 		this._setAuthorizationHeader();
 		return this._axiosInstance.put(url, payload, {
 			params: { isAuthenticationRequired: true,  },
-			withCredentials: true
 		});
 	}
 
@@ -106,7 +104,6 @@ class RestService {
 		this._setAuthorizationHeader();
 		return this._axiosInstance.delete(url, {
 			params: { isAuthenticationRequired: true, ...payload },
-			withCredentials: true
 		});
 	}
 }
