@@ -8,6 +8,7 @@ import CourseList from './pages/Courses'
 import Home from './pages/Home/'
 import LessonDetail from './pages/LessonDetail'
 import Login from './pages/Login/Login'
+import Layout from './shared/components/Layout'
 
 
 const App: FC = () => {
