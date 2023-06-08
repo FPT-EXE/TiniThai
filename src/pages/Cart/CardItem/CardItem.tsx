@@ -13,7 +13,11 @@ import CourseThumbnail from '../../../assets/images/sampleImg.png'
 import { Course } from '../../../shared/common/types'
 
 
-export default function MediaControlCard(course: Course) {
+type CardItem = {
+	course: Course,
+	handleOpenDelete: () => void,
+}
+export default function MediaControlCard({course, handleOpenDelete} : CardItem) {
 	const isScreenLarge: boolean | null = useBreakpoint(up('md'))
 	return (
 		<Card sx={{ 
@@ -54,6 +58,7 @@ export default function MediaControlCard(course: Course) {
 								size="large"
 								aria-label="add to cart"
 								color="error"
+								onClick={handleOpenDelete}
 							>
 								<DeleteIcon />
 							</IconButton>

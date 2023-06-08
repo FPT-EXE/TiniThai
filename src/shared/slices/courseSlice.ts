@@ -1,17 +1,20 @@
 import { createSlice, createAsyncThunk  } from '@reduxjs/toolkit';
 
 import RestService from '../rest/RestService';
+import { Course } from '../common/types';
 
 
-const initialState = {
-	courses: [],
-	status: null,
+type CoursesState = {
+	courseList: Course[],
+}
+const initialState: CoursesState = {
+	courseList: []
 };
 
 export const coursesFetch = createAsyncThunk(
 	'course/coursesFetch',
 	async () => {
-		return await RestService.get();
+		return await RestService.get<null, Course[]>('http://localhost:8080/v1/tinithai/courses');
 	}
 );
 
@@ -19,17 +22,11 @@ const courseSlice = createSlice({
 	name: 'course',
 	initialState,
 	reducers: {},
-	extraReducers: {
-		[coursesFetch.pending]: (state, action) => {
-			state.status = 'pending';
-		},
-		[coursesFetch.fulfilled]: (state, action) => {
-			state.items = action.payload;
-			state.status = 'success';
-		},
-		[coursesFetch.rejected]: (state, action) => {
-			state.status = 'rejected';
-		},
+	extraReducers: (builder) => {
+		builder
+			.addCase(coursesFetch.fulfilled, (state, action) => {
+				state.courseList = action.payload;
+			});
 	},
 });
 

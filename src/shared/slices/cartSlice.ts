@@ -48,13 +48,13 @@ const cartSlice = createSlice({
 
 			if (existingIndex >= 0) {
 				toast.info('Course already exist in your cart', {
-					position: 'bottom-left',
+					position: 'bottom-right',
 				});
 			} else {
 				const tempProductItem = { ...action.payload };
 				state.cartItems.push(tempProductItem);
 				toast.success('Course added to cart', {
-					position: 'bottom-left',
+					position: 'bottom-right',
 				});
 			}
 			localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
@@ -69,7 +69,7 @@ const cartSlice = createSlice({
 					state.cartItems = nextCartItems;
 
 					toast.error('Course removed from cart', {
-						position: 'bottom-left',
+						position: 'bottom-right',
 					});
 				}
 				localStorage.setItem('cartItems', JSON.stringify(state.cartItems));

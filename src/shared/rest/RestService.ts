@@ -66,10 +66,10 @@ class RestService {
 		this._axiosInstance.interceptors.request.use(this._createAuthInterceptor(this._token));
 	}
 
-	public async get<TQuery = object>(
+	public async get<TQuery = object, TResponse = object>(
 		url: string,
 		payload?: TQuery
-	): Promise<AxiosResponse> {
+	): Promise<TResponse> {
 		this._setAuthorizationHeader();
 		return this._axiosInstance.get(url, {
 			params: { isAuthenticationRequired: true, ...payload },

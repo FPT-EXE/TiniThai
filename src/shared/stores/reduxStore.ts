@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 import cartReducer from '../slices/cartSlice';
+import courseSlice from '../slices/courseSlice';
 
-import courseSlice from './slices/courseSlice';
 import lessonSlice from './slices/lessonSlice';
 
 

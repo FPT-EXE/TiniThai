@@ -1,11 +1,13 @@
+import { useEffect } from 'react'
 import { Grid, Typography } from '@mui/material'
 import { up } from 'styled-breakpoints'
 import { useBreakpoint } from 'styled-breakpoints/react-styled'
-import { useDispatch } from 'react-redux'
 
+import { useAppDispatch, useAppSelector } from '../../shared/utils/reduxHook'
 import welcomeImg from '../../assets/images/welcomeImg.svg'
 import { Course } from '../../shared/common/types'
 import { addToCart } from '../../shared/slices/cartSlice'
+import { coursesFetch } from '../../shared/slices/courseSlice'
 
 import MultiActionAreaCard from './CardMedia'
 import * as Styled from './styles'
@@ -13,6 +15,7 @@ import * as Styled from './styles'
 
 const courses: Course[] = [
 	{
+		id: '1',
 		title: '1914 translation by H. Rackham',
 		img: '',
 		description:
@@ -23,6 +26,7 @@ const courses: Course[] = [
 		rating: 4.5
 	},
 	{
+		id: '2',
 		title: '1914 translation by H. Rackham',
 		img: '',
 		description:
@@ -33,6 +37,7 @@ const courses: Course[] = [
 		rating: 4.4
 	},
 	{
+		id: '3',
 		title: '1914 translation by H. Rackham',
 		img: '',
 		description:
@@ -46,10 +51,16 @@ const courses: Course[] = [
 
 const Home = () => {
 	const isScreenLarge: boolean | null = useBreakpoint(up('md'))
-	const dispatch = useDispatch()
+	const dispatch = useAppDispatch()
 	const handleAddToCart = (course: Course) => {
 		dispatch(addToCart(course))
 	}
+
+	// const courses: Course[] = useAppSelector(({ course }) => course.courseList)
+	useEffect(() => {
+		dispatch(coursesFetch())
+		// console.log(courses)
+	}, [dispatch])
 
 	return (
 		<div>
