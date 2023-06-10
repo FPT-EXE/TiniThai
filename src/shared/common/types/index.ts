@@ -1,5 +1,5 @@
 export type Course = {
-	id?: string,
+	_id?: string,
 	title: string,
 	alias: string,
 	img: string,
@@ -13,6 +13,7 @@ export type MCourse = {
 	id: number,
 	title: string,
 	progress: number,
+	description: string,
 	image: string,
 }
 

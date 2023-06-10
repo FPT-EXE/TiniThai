@@ -26,7 +26,7 @@ const LessonModal = ({ isOpenModal, handleClose, lesson }: LessonModalProps) => 
 					{/* <Typography sx={{ mt: 2 }}>
 					{lesson ? lesson.name : "Duis mollis, est non commodo luctus, nisi erat porttitor ligula."}
 					</Typography> */}
-					<Typography color="primary" sx={{ mt: 2 }}>Includes {lesson ? lesson.quizzes.length : ''}  quizzes</Typography>
+					<Typography color="primary" sx={{ mt: 2 }}>Includes {(lesson && lesson.type === 'quiz') ? `${lesson.quizzes.length} quizzes` : `${lesson?.lectures.length} lectures`}  </Typography>
 					<Button variant={'contained'} onClick={()=> navigate(`/lessons/${lesson ? lesson.id : 1}`)}>Start now?</Button>
 				</ModalBody>
 			</LessonModalBox>

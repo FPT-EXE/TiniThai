@@ -14,7 +14,8 @@ const initialState: CoursesState = {
 export const coursesFetch = createAsyncThunk(
 	'course/coursesFetch',
 	async () => {
-		return await RestService.get<null, Course[]>('http://localhost:8080/v1/tinithai/courses');
+		const { data } = await RestService.get(process.env.BACKEND_ENDPOINT + '/courses');
+		return data;
 	}
 );
 

@@ -19,7 +19,7 @@ export default function MultiActionAreaCard({course, handleAddToCart} : CardCour
 	console.log(course ? course.title : 'hong')
 	return (
 		<Card sx={{ maxWidth: 345 }}>
-			<CardActionArea>
+			<CardActionArea sx={{height: '350px'}}>
 				<CardMedia
 					component="img"
 					height="140"

@@ -22,7 +22,7 @@ const LoginForm = () => {
 		}
 
 		RestService.setAuthorizationHeader(token)
-		const {data: {access_token : accessToken}} = await RestService.post('http://localhost:8080/v1/tinithai/auth/login')
+		const {data: {access_token : accessToken}} = await RestService.post(process.env.BACKEND_ENDPOINT + '/auth/login')
 		RestService.setAuthorizationHeader(accessToken)
 		navigate('/home')
 	}

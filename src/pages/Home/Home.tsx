@@ -16,34 +16,34 @@ import * as Styled from './styles'
 // const courses: Course[] = [
 // 	{
 // 		id: '1',
-// 		title: '1914 translation by H. Rackham',
-// 		img: '',
+// 		title: 'Start with the letter',
+// 		img: 'https://cdn1.vectorstock.com/i/1000x1000/62/40/thai-alphabet-letters-vector-34016240.jpg',
 // 		description:
-//       'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system',
-// 		price: 400,
-// 		alias: 'Tieng Thai 1',
+//       'Every language starts with the simplest things, lets start with the alphabet and some basic vocabulary selected by Tiny Thai!',
+// 		price: 600000,
+// 		alias: 'ขึ้นต้นด้วยตัวอักษร',
 // 		degreeOfDifficulty: 7,
 // 		rating: 4.5
 // 	},
 // 	{
 // 		id: '2',
-// 		title: '1914 translation by H. Rackham',
-// 		img: '',
+// 		title: 'Get creative with vocabulary ...',
+// 		img: 'https://png.pngtree.com/artfonts_detail/20181226/thai-red-font-text-sea-weed-pair-smooth-png_6780.jpg',
 // 		description:
-//       'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system',
-// 		price: 450,
-// 		alias: 'Tieng Thai 2',
+//       'In this course, students will be introduced to vocabulary words and how to use them in different communication ...',
+// 		price: 800000,
+// 		alias: 'ใช้ความคิดสร้างสรรค์ด้วยคํา..',
 // 		degreeOfDifficulty: 8,
 // 		rating: 4.4
 // 	},
 // 	{
 // 		id: '3',
-// 		title: '1914 translation by H. Rackham',
-// 		img: '',
+// 		title: 'Fluent with vocabulary ...',
+// 		img: 'https://learnthaistyle.com/wp-content/uploads/2019/05/Screen-Shot-2014-07-21-at-3.02.08-PM.png',
 // 		description:
-//       'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system',
-// 		price: 500,
-// 		alias: 'Tieng Thai 3',
+//       'This course will help students improve their ability to use the Thai language and better understand the ...',
+// 		price: 850000,
+// 		alias: 'คล่องแคล่วกับคําศัพท์และไวยากรณ์',
 // 		degreeOfDifficulty: 9,
 // 		rating: 4.8
 // 	},

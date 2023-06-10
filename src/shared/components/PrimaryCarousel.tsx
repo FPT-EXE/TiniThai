@@ -5,7 +5,10 @@ import { Box, Stack, Typography } from '@mui/material'
 import { useState } from 'react'
 import Slider from 'react-slick'
 
-import Card1 from '../../assets/images/card1.png'
+import Card1 from '../../assets/images/card1.jpg'
+import Card2 from '../../assets/images/card2.jpg'
+import Card3 from '../../assets/images/card3.jpg'
+import Card4 from '../../assets/images/card4.png'
 
 import style from './css/slick-dot.module.css'
 
@@ -29,19 +32,24 @@ const PrimaryCarousel = () => {
 
 	const cards = [
 		{
-			title: 'Bahasa Sunda',
-			text: 'Bandung - Jawa Barat',
+			title: 'Learn step by step',
+			text: '',
 			image: Card1
 		},
 		{
-			title: 'Bahasa Jawa',
-			text:  'Yogyakarta - Jawa Tengah',
-			image: Card1
+			title: 'With Geography',
+			text:  '',
+			image: Card2
 		},
 		{
-			title: 'Bahasa Minangkabau',
-			text: 'Padang - Sumatera Barat',
-			image: Card1
+			title: 'Consonants',
+			text: '',
+			image: Card3
+		},
+		{
+			title: 'Learn with images',
+			text: '',
+			image: Card4
 		},
 	]
 
@@ -68,7 +76,7 @@ const PrimaryCarousel = () => {
 				{cards?.map((card) => (
 					<Box key={card.title} sx={{
 						height: '30rem',
-						backgroundImage: `url(${Card1})`,
+						backgroundImage: `url(${card.image})`,
 						backgroundPosition:'center',
 						backgroundRepeat:'no-repeat',
 						backgroundSize:'cover',
@@ -77,10 +85,10 @@ const PrimaryCarousel = () => {
 						<Stack
 							sx={{
 								justifyContent: 'space-between',
-								height:'30%',
+								height:'10%',
 								width:'100%',
 								position:' relative',
-								top: '50%',
+								top: '90%',
 								paddingX: '2rem',
 								// maxWidth: '25rem',
 								// left: { xs: 0, md: '30vw' },
@@ -92,6 +100,10 @@ const PrimaryCarousel = () => {
 							<Typography
 								fontSize={'2rem'}
 								color="#FFF"
+								sx={{
+									textShadow:'1px 1px 2px #000'
+								}}
+				
 							>
 								{card.title}
 							</Typography>

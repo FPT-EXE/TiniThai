@@ -8,6 +8,7 @@ import ConfirmDialog from '../../shared/components/DialogCustom/ConfirmDialog'
 
 import CardItem from './CardItem'
 import * as Styled from './styles'
+import Checkout from './Checkout'
 
 
 const Cart = () => {
@@ -81,6 +82,8 @@ const Cart = () => {
 					</div>
 				</ConfirmDialog>
 			)}
+
+			<Checkout cartItems={cartItems} />
 		</Styled.Cart>
 	)
 }

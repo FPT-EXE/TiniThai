@@ -1,7 +1,5 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 
-import { getCookie } from '../utils';
-
 
 export type AxiosInitOptions = {
 	header?: Record<string, string>,
@@ -11,12 +9,10 @@ export type AxiosInitOptions = {
 const AUTHORIZATION     = 'Authorization';
 const CONTENT_TYPE      = 'Content-Type';
 const CONTENT_TYPE_JSON = 'application/json';
-const ACCESS_TOKEN      = 'access_token';
 const NGROK_IGNORE      = 'ngrok-skip-browser-warning';
 
 class RestService {
 	private readonly _axiosInstance: AxiosInstance;
-	private _token?: string;
 
 	constructor() {
 		this._axiosInstance = this._initializeAxios({});
@@ -53,27 +49,13 @@ class RestService {
 	}
 
 	public setAuthorizationHeader(token: string) {
-		this._token = token;
 		this._axiosInstance.interceptors.request.use(this._createAuthInterceptor(token));
 	}
 
-	private _setAuthorizationHeader() {
-		if (this._token) {
-			return;
-		}
-		this._token = getCookie(ACCESS_TOKEN);
-		if (!this._token) {
-			console.error('null token');
-			return;
-		}
-		this._axiosInstance.interceptors.request.use(this._createAuthInterceptor(this._token));
-	}
-
-	public async get<TQuery = object, TResponse = object>(
+	public async get<TQuery = object>(
 		url: string,
 		payload?: TQuery
-	): Promise<TResponse> {
-		this._setAuthorizationHeader();
+	): Promise<AxiosResponse> {
 		return this._axiosInstance.get(url, {
 			params: { isAuthenticationRequired: true, ...payload },
 			withCredentials: true
@@ -84,7 +66,6 @@ class RestService {
 		url: string,
 		payload?: TBody
 	): Promise<AxiosResponse> {
-		this._setAuthorizationHeader();
 		return this._axiosInstance.post(url, payload, {
 			params: { isAuthenticationRequired: true },
 		});
@@ -94,7 +75,6 @@ class RestService {
 		url: string,
 		payload?: TBody
 	): Promise<AxiosResponse> {
-		this._setAuthorizationHeader();
 		return this._axiosInstance.put(url, payload, {
 			params: { isAuthenticationRequired: true,  },
 		});
@@ -104,7 +84,6 @@ class RestService {
 		url: string,
 		payload?: TQuery
 	): Promise<AxiosResponse> {
-		this._setAuthorizationHeader();
 		return this._axiosInstance.delete(url, {
 			params: { isAuthenticationRequired: true, ...payload },
 		});

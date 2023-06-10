@@ -1,9 +1,10 @@
 // eslint-disable-next-line import/no-named-as-default
 import styled from 'styled-components';
 import { down } from 'styled-breakpoints';
+import { Grid } from '@mui/material';
 
 
-export const Cart = styled.div`
+export const Cart = styled(Grid)`
   align-items: center;
   justify-content: center;
 `;

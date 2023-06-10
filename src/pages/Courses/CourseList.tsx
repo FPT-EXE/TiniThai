@@ -1,18 +1,20 @@
-import { useNavigate } from 'react-router-dom'
 import {  Typography } from '@mui/material'
+import { useState } from 'react'
 
 import { courses } from '../../shared/common/constants/data'
 import { MCourse } from '../../shared/common/types'
 import PrimaryCarousel from '../../shared/components/PrimaryCarousel'
-import { useAppDispatch } from '../../shared/stores/hooks'
+import { useAppDispatch, useAppSelector } from '../../shared/stores/hooks'
 import { setCurrentCourse } from '../../shared/stores/slices/courseSlice'
 
 import { CourseGridItem, CourseItem, CourseListContainer, CourseGridContainer, CourseImageBox, CourseImage, CourseInfoSection, CourseProgress, CourseProgressText } from './style'
+import CourseModal from './CourseModal'
 
 
 const CourseList = () => {
-	const navigate = useNavigate()
 	const dispatch = useAppDispatch()
+	const [isOpenModal, setIsOpenModal] = useState(false)
+	const currentCourse = useAppSelector((state) => state.course.currentCourse)
 	return (
 		<>
 			<PrimaryCarousel />
@@ -35,7 +37,7 @@ const CourseList = () => {
 							}}
 							onClick={()=> {
 								dispatch(setCurrentCourse(course))
-								navigate(`/courses/${course.id}`)
+								setIsOpenModal(true)
 							}}
 						>
 							<CourseItem>							
@@ -68,7 +70,11 @@ const CourseList = () => {
 						</CourseGridItem>
 					))}
 				</CourseGridContainer>
-
+				<CourseModal
+					course={currentCourse}
+					handleClose={() => setIsOpenModal(false)}
+					isOpenModal={isOpenModal}
+				/>
 			</CourseListContainer>
 		</>
 	)
