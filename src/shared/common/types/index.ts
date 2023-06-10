@@ -19,6 +19,7 @@ export type MCourse = {
 
 export type Lesson = {
 	id: number,
+	courseId: number,
 	time: {
 		hour: number,
 		minute: number,

@@ -16,6 +16,7 @@ import { QuestionTypeEnum } from '.';
 export const lessons: Lesson[] = [
 	{
 		id: 1,
+		courseId: 1,
 		type: 'lecture',
 		name: 'Words',
 		image: Lesson2,
@@ -60,6 +61,7 @@ export const lessons: Lesson[] = [
 	},
 	{
 		id: 2,
+		courseId: 1,
 		type: 'quiz',
 		name: 'Image quiz',
 		image: CourseDetail1,
@@ -141,6 +143,7 @@ export const lessons: Lesson[] = [
 	},
 	{
 		id: 3,
+		courseId: 1,
 		type: 'quiz',
 		name: 'Comunication',
 		image: Lesson1,
@@ -156,6 +159,7 @@ export const lessons: Lesson[] = [
 	},
 	{
 		id: 4,
+		courseId: 1,
 		type: 'lecture',
 		name: 'Grammar',
 		image: Lesson3,
