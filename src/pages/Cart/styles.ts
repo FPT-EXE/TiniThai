@@ -9,8 +9,8 @@ export const Cart = styled(Grid)`
   justify-content: center;
 `;
 
-export const CardItems = styled.div`
-  width: 80vw;
+export const CardItems = styled(Grid)`
+  width: 80%;
   margin-top: 20px;
   ${down('md')} {
     width: 90%;

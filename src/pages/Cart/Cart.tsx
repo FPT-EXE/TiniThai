@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material'
+import { Grid, Typography } from '@mui/material'
 import { useState } from 'react'
 
 import { useAppSelector, useAppDispatch } from '../../shared/utils/reduxHook'
@@ -29,8 +29,8 @@ const Cart = () => {
 	}
 
 	return (
-		<Styled.Cart>
-			<Styled.CardItems>
+		<Styled.Cart container >
+			<Styled.CardItems item xs={12} sm={8} md={8}>
 				<Typography
 					variant='h4'
 					sx={{
@@ -48,7 +48,7 @@ const Cart = () => {
 				
 				
 				{cartItems.length === 0 ? (
-					<Typography variant="body2" color="text.secondary">Your cart is empty</Typography>
+					<Typography variant="body2" color="text.secondary" sx={{ml: 'auto', mr: 'auto',width: '80%'}}>Your cart is empty</Typography>
 				) : (
 					cartItems.map((item, index) => (
 						<CardItem key={index} course={item} handleOpenDelete={() => handleOpenDelete(item)} />
@@ -83,7 +83,10 @@ const Cart = () => {
 				</ConfirmDialog>
 			)}
 
-			<Checkout cartItems={cartItems} />
+			<Grid item xs={12} sm={4} md={4}>
+				<Checkout cartItems={cartItems} />
+			</Grid>
+			
 		</Styled.Cart>
 	)
 }

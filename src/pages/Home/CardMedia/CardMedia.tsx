@@ -23,7 +23,7 @@ export default function MultiActionAreaCard({course, handleAddToCart} : CardCour
 				<CardMedia
 					component="img"
 					height="140"
-					image={course.img ? course.img : CourseThumbnail}
+					image={course.background ? course.background : CourseThumbnail}
 					alt="green iguana"
 				/>
 				<CardContent>

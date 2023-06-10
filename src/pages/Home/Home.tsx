@@ -15,9 +15,9 @@ import * as Styled from './styles'
 
 // const courses: Course[] = [
 // 	{
-// 		id: '1',
+// 		_id: '1',
 // 		title: 'Start with the letter',
-// 		img: 'https://cdn1.vectorstock.com/i/1000x1000/62/40/thai-alphabet-letters-vector-34016240.jpg',
+// 		background: 'https://cdn1.vectorstock.com/i/1000x1000/62/40/thai-alphabet-letters-vector-34016240.jpg',
 // 		description:
 //       'Every language starts with the simplest things, lets start with the alphabet and some basic vocabulary selected by Tiny Thai!',
 // 		price: 600000,
@@ -26,9 +26,9 @@ import * as Styled from './styles'
 // 		rating: 4.5
 // 	},
 // 	{
-// 		id: '2',
+// 		_id: '2',
 // 		title: 'Get creative with vocabulary ...',
-// 		img: 'https://png.pngtree.com/artfonts_detail/20181226/thai-red-font-text-sea-weed-pair-smooth-png_6780.jpg',
+// 		background: 'https://png.pngtree.com/artfonts_detail/20181226/thai-red-font-text-sea-weed-pair-smooth-png_6780.jpg',
 // 		description:
 //       'In this course, students will be introduced to vocabulary words and how to use them in different communication ...',
 // 		price: 800000,
@@ -37,9 +37,9 @@ import * as Styled from './styles'
 // 		rating: 4.4
 // 	},
 // 	{
-// 		id: '3',
+// 		_id: '3',
 // 		title: 'Fluent with vocabulary ...',
-// 		img: 'https://learnthaistyle.com/wp-content/uploads/2019/05/Screen-Shot-2014-07-21-at-3.02.08-PM.png',
+// 		background: 'https://learnthaistyle.com/wp-content/uploads/2019/05/Screen-Shot-2014-07-21-at-3.02.08-PM.png',
 // 		description:
 //       'This course will help students improve their ability to use the Thai language and better understand the ...',
 // 		price: 850000,

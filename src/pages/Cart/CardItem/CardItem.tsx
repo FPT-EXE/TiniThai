@@ -31,7 +31,7 @@ export default function MediaControlCard({course, handleOpenDelete} : CardItem) 
 			<CardMedia
 				component="img"
 				sx={{ width: 151 }}
-				image={course.img ? course.img : CourseThumbnail}
+				image={course.background ? course.background : CourseThumbnail}
 				alt="Live from space album cover"
 			/>
 			<Box sx={{ display: 'flex', flexDirection: 'column' }}>

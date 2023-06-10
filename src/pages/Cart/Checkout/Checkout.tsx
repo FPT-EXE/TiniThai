@@ -20,14 +20,15 @@ export default function Checkout({cartItems} : CheckoutParam) {
 	
 	const payTheBill = async () => {
 		cartItems.forEach((item) => courseIdList.push(String(item._id))) 
+		console.log(courseIdList)
 		const { data } = await RestService.post(process.env.BACKEND_ENDPOINT + '/payments/url', {
 			courseIds: courseIdList
 		})
-		navigate(data.url)
+		window.location.replace(data.url)
 	}
   
 	return (
-		<Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+		<Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper', mb: 5 }}>
 			<Box sx={{ my: 3, mx: 2 }}>
 				<Grid container alignItems="center">
 					<Grid item xs>
@@ -44,7 +45,11 @@ export default function Checkout({cartItems} : CheckoutParam) {
 			</Box>
 			<Divider variant="middle" />
 			<Box sx={{ mt: 3, ml: 1, mb: 1 }}>
-				<Button variant="contained" color='secondary' onClick={payTheBill}>Checkout</Button>
+				<Button variant="contained" color='secondary' onClick={payTheBill} 
+					disabled={cartItems.length === 0 ? true : false} 
+				>
+          Checkout
+				</Button>
 			</Box>
 		</Box>
 	)
