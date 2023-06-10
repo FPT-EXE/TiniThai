@@ -10,6 +10,7 @@ import Layout from './shared/components/Layout'
 import CourseList from './pages/Courses/CourseList'
 import CourseDetail from './pages/CourseDetail/CourseDetail'
 import LessonDetail from './pages/LessonDetail/LessonDetail'
+import Payment from './pages/Payment'
 
 
 const App: FC = () => {
@@ -36,6 +37,11 @@ const App: FC = () => {
 					<Route path="/cart" element={
 						<Layout>
 							<Cart />
+						</Layout>
+					} />
+					<Route path="/payment" element={
+						<Layout>
+							<Payment />
 						</Layout>
 					} />
 				</Routes>

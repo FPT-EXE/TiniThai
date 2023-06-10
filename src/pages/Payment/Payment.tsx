@@ -7,8 +7,8 @@ import { CallbackContainer } from './style'
 
 type Props = object;
 
-export const PaymentCallback = (props: Props) => {
-	const [searchParams, setSearchParams] = useSearchParams()
+const PaymentCallback = (props: Props) => {
+	const [searchParams] = useSearchParams()
 	const isSuccess = Boolean(
 		JSON.parse(searchParams.get('isSuccess') ?? 'false')
 	)
@@ -29,7 +29,7 @@ export const PaymentCallback = (props: Props) => {
 					: 'There has been an error during the process'}
 			</Typography>
 			{timer <= 0 ? (
-				<Navigate to="/home/invoices" replace={true} />
+				<Navigate to="/home" replace={true} />
 			) : (
 				<Typography>
           This page will be redirected in {timer} seconds.
@@ -38,3 +38,5 @@ export const PaymentCallback = (props: Props) => {
 		</CallbackContainer>
 	)
 }
+
+export default PaymentCallback
