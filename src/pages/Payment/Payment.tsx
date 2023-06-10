@@ -12,8 +12,8 @@ const PaymentCallback = (props: Props) => {
 	const isSuccess = Boolean(
 		JSON.parse(searchParams.get('isSuccess') ?? 'false')
 	)
-	// console.log(isSuccess)
-	const [timer, setTimer] = useState(4)
+	console.log(isSuccess)
+	const [timer, setTimer] = useState(10)
 	useEffect(() => {
 		if (timer <= 0) return
 		setTimeout(() => {
@@ -23,7 +23,7 @@ const PaymentCallback = (props: Props) => {
 
 	return (
 		<CallbackContainer>
-			<Typography variant="h3">
+			<Typography variant="h4" sx={{color: isSuccess ? 'success' : 'red'}}>
 				{isSuccess
 					? 'Pay the bill successfully'
 					: 'There has been an error during the process'}

@@ -4,4 +4,5 @@ import Paper from '@mui/material/Paper';
 
 export const CallbackContainer = styled(Paper)`
     padding: 15px;
+    margin: 10%;
 `;
