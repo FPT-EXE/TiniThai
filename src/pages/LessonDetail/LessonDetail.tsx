@@ -2,7 +2,6 @@
 /* eslint-disable max-lines-per-function */
 
 import { useEffect } from 'react'
-import { Button } from '@mui/material'
 import { useNavigate, useParams } from 'react-router-dom'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
 
@@ -10,6 +9,7 @@ import { useAppDispatch, useAppSelector } from '../../shared/stores/hooks'
 // import { initializeAxios } from '../../shared/rest/axiosUtils'
 import { lessons } from '../../shared/common/constants/data'
 import { setCurrentLesson } from '../../shared/stores/slices/lessonSlice'
+import FixedBottomButton from '../../shared/components/Button'
 
 import { LessonDetailContainer } from './styles'
 import QuizSection from './LessonPractice/QuizSection'
@@ -54,7 +54,7 @@ const LessonDetail = () => {
 				<></>
 			)}
 			{
-				currentCourse && <Button startIcon={<ArrowBackIosIcon />} sx={{position: 'fixed', zIndex: 99, bottom: 20}} onClick={() => navigate(`/courses/${currentCourse?.id}`)}>Back To Course</Button>
+				currentLesson && <FixedBottomButton startIcon={<ArrowBackIosIcon />}  onClick={() => navigate(`/courses/${currentLesson?.courseId}`)}>Back To Course</FixedBottomButton>
 			}
 		</LessonDetailContainer>
 	)
