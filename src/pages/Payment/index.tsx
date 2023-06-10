@@ -2,7 +2,7 @@ import { Button, Link } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import PaidIcon from '@mui/icons-material/Paid'
 
-import { RestCaller } from '../../../../utils/RestCaller'
+import RestCaller from '../../shared/rest/RestService'
 
 
 interface IPaymentProps {

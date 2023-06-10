@@ -23,6 +23,7 @@ class RestService {
 		const axiosInstance = axios.create({
 			timeout: 60000,
 			headers: this._prepareHeader(header),
+			withCredentials: true,
 			...options,
 		});
 		return axiosInstance;
@@ -33,13 +34,10 @@ class RestService {
 	): Record<string, string> {
 		const header: Record<string, string> = {};
 		header[CONTENT_TYPE] = CONTENT_TYPE_JSON;
-		header['Access-Control-Allow-Origin'] = '*';
-		header['Access-Control-Allow-Methods'] = 'DELETE, POST, GET, OPTIONS';
-		header['Access-Control-Allow-Headers'] = 'Content-Type, Authorization, X-Requested-With';
 		header[NGROK_IGNORE] = 'true';
 		return { ...header, ...additionalHeaders };
 	}
-  
+
 	private _createAuthInterceptor(token: string) {
 		return (request: AxiosRequestConfig) => {
 			request.headers = request.headers ?? {};
@@ -49,43 +47,46 @@ class RestService {
 	}
 
 	public setAuthorizationHeader(token: string) {
-		this._axiosInstance.interceptors.request.use(this._createAuthInterceptor(token));
+		this._axiosInstance.interceptors.request.use(
+			this._createAuthInterceptor(token)
+		);
 	}
 
 	public async get<TQuery = object>(
 		url: string,
-		payload?: TQuery
+		payload?: TQuery,
+		options?: AxiosRequestConfig
 	): Promise<AxiosResponse> {
 		return this._axiosInstance.get(url, {
-			params: { isAuthenticationRequired: true, ...payload },
-			withCredentials: true
+			params: payload,
+			...options,
 		});
 	}
 
 	public async post<TBody = object>(
 		url: string,
-		payload?: TBody
+		payload?: TBody,
+		options?: AxiosRequestConfig
 	): Promise<AxiosResponse> {
-		return this._axiosInstance.post(url, payload, {
-			params: { isAuthenticationRequired: true },
-		});
+		return this._axiosInstance.post(url, payload, options);
 	}
 
 	public async put<TBody = object>(
 		url: string,
-		payload?: TBody
+		payload?: TBody,
+		options?: AxiosRequestConfig
 	): Promise<AxiosResponse> {
-		return this._axiosInstance.put(url, payload, {
-			params: { isAuthenticationRequired: true,  },
-		});
+		return this._axiosInstance.put(url, payload, options);
 	}
 
 	public async delete<TQuery = object>(
 		url: string,
-		payload?: TQuery
+		payload?: TQuery,
+		options?: AxiosRequestConfig
 	): Promise<AxiosResponse> {
 		return this._axiosInstance.delete(url, {
-			params: { isAuthenticationRequired: true, ...payload },
+			params: payload,
+			...options,
 		});
 	}
 }

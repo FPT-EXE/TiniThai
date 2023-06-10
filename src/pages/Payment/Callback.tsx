@@ -5,7 +5,7 @@ import { Navigate, useSearchParams } from 'react-router-dom'
 import { CallbackContainer } from './style'
 
 
-type Props = {}
+type Props = object;
 
 export const PaymentCallback = (props: Props) => {
 	const [searchParams, setSearchParams] = useSearchParams()
@@ -32,7 +32,7 @@ export const PaymentCallback = (props: Props) => {
 				<Navigate to="/home/invoices" replace={true} />
 			) : (
 				<Typography>
-                    This page will be redirected in {timer} seconds.
+          This page will be redirected in {timer} seconds.
 				</Typography>
 			)}
 		</CallbackContainer>

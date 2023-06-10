@@ -22,9 +22,12 @@ const LoginForm = () => {
 		}
 
 		RestService.setAuthorizationHeader(token)
-		const {data: {access_token : accessToken}} = await RestService.post(process.env.BACKEND_ENDPOINT + '/auth/login')
-		RestService.setAuthorizationHeader(accessToken)
-		navigate('/home')
+		try {
+			await RestService.post(process.env.BACKEND_ENDPOINT + '/auth/login')
+			navigate('/home')
+		} catch {
+			navigate('/login')
+		}
 	}
 	return (
 		<Styled.PaperLogin>
