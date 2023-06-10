@@ -5,9 +5,7 @@ import { Navigate, useSearchParams } from 'react-router-dom'
 import { CallbackContainer } from './style'
 
 
-type Props = object;
-
-const PaymentCallback = (props: Props) => {
+const PaymentCallback = () => {
 	const [searchParams] = useSearchParams()
 	const isSuccess = Boolean(
 		JSON.parse(searchParams.get('isSuccess') ?? 'false')

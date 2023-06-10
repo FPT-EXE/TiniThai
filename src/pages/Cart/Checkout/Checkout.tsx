@@ -3,8 +3,6 @@ import Button from '@mui/material/Button'
 import Grid from '@mui/material/Grid'
 import Divider from '@mui/material/Divider'
 import Typography from '@mui/material/Typography'
-import { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
 
 import { Course } from '../../../shared/common/types'
 import RestService from '../../../shared/rest/RestService'
@@ -14,7 +12,6 @@ type CheckoutParam = {
 	cartItems: Course[],
 }
 export default function Checkout({cartItems} : CheckoutParam) {
-	const navigate = useNavigate()
 	const courseIdList : string[] = []
 	
 	

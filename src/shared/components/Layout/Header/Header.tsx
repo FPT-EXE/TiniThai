@@ -90,7 +90,10 @@ export default function MenuAppBar() {
 								onClose={handleClose}
 							>
 								<MenuItem onClick={handleClose}>Profile</MenuItem>
-								<MenuItem onClick={handleClose}>My courses</MenuItem>
+								<MenuItem onClick={() => {
+									setAnchorEl(null)
+									navigate('/courses')
+								}}>My courses</MenuItem>
 							</Menu>
 						</div>
 					)}
