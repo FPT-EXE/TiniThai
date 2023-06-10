@@ -47,6 +47,7 @@ const CourseDetail = () => {
 	// const { courseId } = useParams()
 	const [isOpenModal, setIsOpenModal] = useState(false)
 	const currentLesson = useAppSelector((state) => state.lesson.currentLesson)
+	const currentCourse = useAppSelector((state) => state.course.currentCourse)
 	const navigate = useNavigate()
 	const dispatch = useAppDispatch()
 	return (
@@ -54,8 +55,8 @@ const CourseDetail = () => {
 			<Stack justifyContent={'center'} minHeight="100vh">
 				<CourseDetailFlex>
 					<CourseDetailImageSection>
-						<CourseDetailImage src={courseDetailmg} />
-						<Typography fontSize={'1.875rem'}>Introductory Thai</Typography>
+						<CourseDetailImage src={currentCourse ? currentCourse.image : courseDetailmg} />
+						<Typography fontSize={'1.875rem'}>{currentCourse ? currentCourse?.title : 'Introductory Thai'}</Typography>
 					</CourseDetailImageSection>
 					<LessonSection>
 						<LessonGridContainer container>
@@ -85,13 +86,13 @@ const CourseDetail = () => {
 											}}
 										>
 											<LessonImage src={lesson.image} />
-											<Typography
+											{/* <Typography
 												fontSize="0.7rem"
 												color="white.main"
 												textTransform="uppercase"
 											>
 												{`Level ${lesson.level}`}
-											</Typography>
+											</Typography> */}
 										</LessonImageBox>
 										<LessonInfoSection>
 											<Typography fontWeight={500} fontSize="17px">
@@ -128,8 +129,9 @@ const CourseDetail = () => {
 									<ArrowForwardIosIcon sx={{ fontSize: '12px' }} />
 								</IconBox>
 							}
+							onClick={()=> {dispatch(setCurrentLesson(lessons[0])); navigate(`/lessons/${lessons[0].id}`)}}
 						>
-              Mulai Belajar
+              Start learning
 						</CourseDetailButton>
 					</LessonSection>
 				</CourseDetailFlex>		

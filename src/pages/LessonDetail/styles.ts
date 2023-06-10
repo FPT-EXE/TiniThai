@@ -138,8 +138,8 @@ export const LectureCard = styled(Stack)`
   align-items: center;
   width: 20rem;
   height: 28rem;
-  border: solid 2px #000;
-  box-shadow: 0px 0px 10px -2px;
+  border: solid 1px #000;
+  box-shadow: 0px 0px 10px -3px;
   padding: 1rem 1rem;
   background: linear-gradient(45deg, #C2CF7B 16.71%, #D1B9DC 60.09%);
   ${down('md')} {
