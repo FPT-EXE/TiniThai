@@ -4,7 +4,7 @@ import { up } from 'styled-breakpoints'
 import { useBreakpoint } from 'styled-breakpoints/react-styled'
 
 import { useAppDispatch, useAppSelector } from '../../shared/utils/reduxHook'
-import welcomeImg from '../../assets/images/welcomeImg.svg'
+import welcomeImg from '../../../public/images/welcomeImg.svg'
 import { Course } from '../../shared/common/types'
 import { addToCart } from '../../shared/slices/cartSlice'
 import { coursesFetch } from '../../shared/slices/courseSlice'

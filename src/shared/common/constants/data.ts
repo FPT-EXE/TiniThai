@@ -1,14 +1,14 @@
 import { Lesson, MCourse } from '../types';
-import Lesson1 from '../../../assets/images/Lesson1.png';
-import Lesson2 from '../../../assets/images/Lesson2.png';
-import Lesson3 from '../../../assets/images/Lesson3.png';
-import Course1 from '../../../assets/images/course1.jpg';
-import Course2 from '../../../assets/images/course2.jpg';
-import Course3 from '../../../assets/images/course3.png';
-import CourseDetail1 from '../../../assets/images/coursedetail1.png';
-import Hen from '../../../assets/images/hen.png';
-import Mosquito from '../../../assets/images/mosquito.png';
-import Shrimp from '../../../assets/images/shrimp.png';
+import Lesson1 from '../../../../public/images/Lesson1.png';
+import Lesson2 from '../../../../public/images/Lesson2.png';
+import Lesson3 from '../../../../public/images/Lesson3.png';
+import Course1 from '../../../../public/images/course1.jpg';
+import Course2 from '../../../../public/images/course2.jpg';
+import Course3 from '../../../../public/images/course3.png';
+import CourseDetail1 from '../../../../public/images/coursedetail1.png';
+import Hen from '../../../../public/images/hen.png';
+import Mosquito from '../../../../public/images/mosquito.png';
+import Shrimp from '../../../../public/images/shrimp.png';
 
 import { QuestionTypeEnum } from '.';
 

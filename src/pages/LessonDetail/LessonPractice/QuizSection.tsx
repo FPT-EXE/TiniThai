@@ -20,7 +20,7 @@ import {
 import { Lesson, LessonAnswer } from '../../../shared/common/types'
 import { useAppDispatch, useAppSelector } from '../../../shared/stores/hooks'
 import { QuestionTypeEnum } from '../../../shared/common/constants'
-import QuestionImage1 from '../../../assets/images/QuestionImage1.png'
+import QuestionImage1 from '../../../../public/images/QuestionImage1.png'
 import { setLessonAnswers } from '../../../shared/stores/slices/lessonSlice'
 
 import Result from './Result'

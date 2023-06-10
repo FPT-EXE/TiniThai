@@ -14,7 +14,7 @@ import { useBreakpoint } from 'styled-breakpoints/react-styled'
 import { up } from 'styled-breakpoints'
 import { useNavigate } from 'react-router-dom'
 
-import logo from '../../../../assets/images/logo.svg'
+import logo from '../../../../../public/images/logo.svg'
 
 
 export default function MenuAppBar() {
