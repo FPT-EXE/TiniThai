@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 import * as React from 'react'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
@@ -12,6 +13,8 @@ import { Tooltip } from '@mui/material'
 import { useBreakpoint } from 'styled-breakpoints/react-styled'
 import { up } from 'styled-breakpoints'
 import { useNavigate } from 'react-router-dom'
+
+import logo from '../../../../assets/images/logo.svg'
 
 
 export default function MenuAppBar() {
@@ -38,7 +41,10 @@ export default function MenuAppBar() {
 			}>
 				<Toolbar>
 					<Typography variant="h6" component="div" sx={{ flexGrow: 1, cursor:'pointer' }} onClick={()=> navigate('/home')}>
-            TiniThai
+						<a href='/home'>
+							<img src={logo} alt='logo' width='70px' />
+						</a>
+            TinyThai
 					</Typography>
 
 					<IconButton
@@ -47,6 +53,7 @@ export default function MenuAppBar() {
 						aria-controls="cart-appbar"
 						aria-haspopup="true"
 						color="inherit"
+						href='/cart'
 					>
 						<ShoppingCartIcon />
 					</IconButton>
@@ -83,7 +90,10 @@ export default function MenuAppBar() {
 								onClose={handleClose}
 							>
 								<MenuItem onClick={handleClose}>Profile</MenuItem>
-								<MenuItem onClick={handleClose}>My courses</MenuItem>
+								<MenuItem onClick={() => {
+									setAnchorEl(null)
+									navigate('/courses')
+								}}>My courses</MenuItem>
 							</Menu>
 						</div>
 					)}

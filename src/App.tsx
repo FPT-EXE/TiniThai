@@ -3,12 +3,14 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 
 import './assets/styles/app.css'
 import './assets/styles/app.scss'
-import CourseDetail from './pages/CourseDetail'
-import CourseList from './pages/Courses'
-import Home from './pages/Home/'
-import LessonDetail from './pages/LessonDetail'
-import Login from './pages/Login/Login'
+import Home from './pages/Home'
+import Login from './pages/Login'
+import Cart from './pages/Cart'
 import Layout from './shared/components/Layout'
+import CourseList from './pages/Courses/CourseList'
+import CourseDetail from './pages/CourseDetail/CourseDetail'
+import LessonDetail from './pages/LessonDetail/LessonDetail'
+import Payment from './pages/Payment'
 
 
 const App: FC = () => {
@@ -27,6 +29,21 @@ const App: FC = () => {
 						element={<Layout><CourseDetail /></Layout>} />
 					<Route   path="/lessons/:lessonId"
 						element={<Layout><LessonDetail /></Layout>} />
+					<Route path="/home" element={
+						<Layout>
+							<Home />
+						</Layout>
+					} />
+					<Route path="/cart" element={
+						<Layout>
+							<Cart />
+						</Layout>
+					} />
+					<Route path="/payment" element={
+						<Layout>
+							<Payment />
+						</Layout>
+					} />
 				</Routes>
 			</BrowserRouter>
 		</Fragment>

@@ -1,7 +1,8 @@
 export type Course = {
+	_id?: string,
 	title: string,
 	alias: string,
-	img: string,
+	background: string,
 	price: number,
 	description: string,
 	rating: number,

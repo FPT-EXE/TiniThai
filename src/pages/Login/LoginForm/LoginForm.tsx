@@ -1,21 +1,32 @@
 import { Button, Grid, Typography } from '@mui/material'
 import { useBreakpoint } from 'styled-breakpoints/react-styled'
 import { up } from 'styled-breakpoints'
+import { useNavigate } from 'react-router-dom'
 
 import login from '../../../assets/images/login.svg'
 import GoogleIcon from '../../../assets/images/GoogleLogo.svg'
 import firebaseSvc from '../../../shared/services/FirebaseService'
+import RestService from '../../../shared/rest/RestService'
 
 import * as Styled from './styles'
 
 
 const LoginForm = () => {
 	const isScreenLarge: boolean | null = useBreakpoint(up('md'))
+	const navigate = useNavigate()
 	const onSignInGoogle = async () => {
 		const token = await firebaseSvc.signInWithGoogle()
 		if (!token) {
 			console.log('Failed to sign in Google')
 			return
+		}
+
+		RestService.setAuthorizationHeader(token)
+		try {
+			await RestService.post(process.env.BACKEND_ENDPOINT + '/auth/login')
+			navigate('/home')
+		} catch {
+			navigate('/login')
 		}
 	}
 	return (
@@ -32,7 +43,7 @@ const LoginForm = () => {
 					textDecoration: 'none'
 				}}
 			>
-              Welcome to Tiny Thai
+        Welcome to Tiny Thai
 			</Typography>
 			<Typography
 				variant='subtitle1'

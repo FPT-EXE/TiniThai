@@ -10,5 +10,4 @@ export const BodyWrapper = styled.div`
     justify-content: center;
 
     background-color: var(--bgr-color);
-    min-height: 100vh;
 `;

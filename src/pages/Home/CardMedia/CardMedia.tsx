@@ -10,18 +10,20 @@ import CourseThumbnail from '../../../assets/images/CourseThumbnail.jpg'
 import { Course } from '../../../shared/common/types'
 
 
-
-
-export default function MultiActionAreaCard(course: Course) {
+type CardCourse = {
+	course: Course,
+	handleAddToCart: () => void,
+}
+export default function MultiActionAreaCard({course, handleAddToCart} : CardCourse) {
 	console.log(course)
 	console.log(course ? course.title : 'hong')
 	return (
 		<Card sx={{ maxWidth: 345 }}>
-			<CardActionArea>
+			<CardActionArea sx={{height: '350px'}}>
 				<CardMedia
 					component="img"
 					height="140"
-					image={course.img ? course.img : CourseThumbnail}
+					image={course.background ? course.background : CourseThumbnail}
 					alt="green iguana"
 				/>
 				<CardContent>
@@ -38,24 +40,23 @@ export default function MultiActionAreaCard(course: Course) {
 			</CardActionArea>
 			<CardActions>
 				<Grid container>
-					<Grid item>
-						<Typography gutterBottom variant="h6" component="div">
+					<Grid item xs={7}>
+						<Typography gutterBottom variant="h6" component="div" sx={{ml: 2}}>
 							{course.price}
 						</Typography>
 					</Grid>
-					<Grid item>
-						<Tooltip title="Add to cart" sx={{ float: 'right' }}>
+					<Grid item xs={5}>
+						<Tooltip title="Add to cart" sx={{ float: 'right', mr: 2 }}>
 							<IconButton
 								size="large"
 								aria-label="add to cart"
 								color="secondary"
+								onClick={handleAddToCart}
 							>
 								<AddShoppingCartIcon />
 							</IconButton>
 						</Tooltip>
 					</Grid>
-					
-					
 				</Grid>
 				
 				

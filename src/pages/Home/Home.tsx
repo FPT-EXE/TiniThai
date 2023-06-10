@@ -1,50 +1,66 @@
-import React from 'react'
+import { useEffect } from 'react'
 import { Grid, Typography } from '@mui/material'
 import { up } from 'styled-breakpoints'
 import { useBreakpoint } from 'styled-breakpoints/react-styled'
 
+import { useAppDispatch, useAppSelector } from '../../shared/utils/reduxHook'
 import welcomeImg from '../../assets/images/welcomeImg.svg'
 import { Course } from '../../shared/common/types'
+import { addToCart } from '../../shared/slices/cartSlice'
+import { coursesFetch } from '../../shared/slices/courseSlice'
 
 import MultiActionAreaCard from './CardMedia'
 import * as Styled from './styles'
 
 
-const courses: Course[] = [
-	{
-		title: '1914 translation by H. Rackham',
-		img: '',
-		description:
-      'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system',
-		price: 400,
-		alias: 'Tieng Thai 1',
-		degreeOfDifficulty: 7,
-		rating: 4.5
-	},
-	{
-		title: '1914 translation by H. Rackham',
-		img: '',
-		description:
-      'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system',
-		price: 450,
-		alias: 'Tieng Thai 2',
-		degreeOfDifficulty: 8,
-		rating: 4.4
-	},
-	{
-		title: '1914 translation by H. Rackham',
-		img: '',
-		description:
-      'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system',
-		price: 500,
-		alias: 'Tieng Thai 3',
-		degreeOfDifficulty: 9,
-		rating: 4.8
-	},
-]
+// const courses: Course[] = [
+// 	{
+// 		_id: '1',
+// 		title: 'Start with the letter',
+// 		background: 'https://cdn1.vectorstock.com/i/1000x1000/62/40/thai-alphabet-letters-vector-34016240.jpg',
+// 		description:
+//       'Every language starts with the simplest things, lets start with the alphabet and some basic vocabulary selected by Tiny Thai!',
+// 		price: 600000,
+// 		alias: 'ขึ้นต้นด้วยตัวอักษร',
+// 		degreeOfDifficulty: 7,
+// 		rating: 4.5
+// 	},
+// 	{
+// 		_id: '2',
+// 		title: 'Get creative with vocabulary ...',
+// 		background: 'https://png.pngtree.com/artfonts_detail/20181226/thai-red-font-text-sea-weed-pair-smooth-png_6780.jpg',
+// 		description:
+//       'In this course, students will be introduced to vocabulary words and how to use them in different communication ...',
+// 		price: 800000,
+// 		alias: 'ใช้ความคิดสร้างสรรค์ด้วยคํา..',
+// 		degreeOfDifficulty: 8,
+// 		rating: 4.4
+// 	},
+// 	{
+// 		_id: '3',
+// 		title: 'Fluent with vocabulary ...',
+// 		background: 'https://learnthaistyle.com/wp-content/uploads/2019/05/Screen-Shot-2014-07-21-at-3.02.08-PM.png',
+// 		description:
+//       'This course will help students improve their ability to use the Thai language and better understand the ...',
+// 		price: 850000,
+// 		alias: 'คล่องแคล่วกับคําศัพท์และไวยากรณ์',
+// 		degreeOfDifficulty: 9,
+// 		rating: 4.8
+// 	},
+// ]
 
 const Home = () => {
 	const isScreenLarge: boolean | null = useBreakpoint(up('md'))
+	const dispatch = useAppDispatch()
+	const handleAddToCart = (course: Course) => {
+		dispatch(addToCart(course))
+	}
+
+	const courses: Course[] = useAppSelector(({ course }) => course.courseList)
+	useEffect(() => {
+		dispatch(coursesFetch())
+		// console.log(courses)
+	}, [dispatch])
 
 	return (
 		<div>
@@ -88,7 +104,7 @@ const Home = () => {
 					<Grid container spacing={2}>
 						{courses.map((course, index) => (
 							<Grid key={index} item xs={12} sm={4} md={4}>
-								<MultiActionAreaCard {...course} />
+								<MultiActionAreaCard course={course} handleAddToCart={() => handleAddToCart(course)} />
 							</Grid>
 						))}
 					</Grid>
