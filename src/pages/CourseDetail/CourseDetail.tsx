@@ -1,5 +1,5 @@
 /* eslint-disable max-lines-per-function */
-import { Button, Stack, Typography } from '@mui/material'
+import {  Stack, Typography } from '@mui/material'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
 // import {  useParams } from 'react-router-dom'
@@ -11,6 +11,7 @@ import { useAppDispatch, useAppSelector } from '../../shared/stores/hooks'
 import { Lesson } from '../../shared/common/types'
 import { setCurrentLesson } from '../../shared/stores/slices/lessonSlice'
 import { lessonColors, lessons } from '../../shared/common/constants/data'
+import FixedBottomButton from '../../shared/components/Button'
 
 import {
 	CourseDetailButton,
@@ -135,9 +136,9 @@ const CourseDetail = () => {
 						</CourseDetailButton>
 					</LessonSection>
 				</CourseDetailFlex>		
-				<Button sx={{paddingTop: '2rem'}} startIcon={<ArrowBackIosIcon />} onClick={() => navigate('/courses')}>Back To Course</Button>					
+							
 			</Stack>
-		
+			<FixedBottomButton startIcon={<ArrowBackIosIcon />} onClick={() => navigate('/courses')}>Back To Course</FixedBottomButton>		
 			<LessonModal
 				lesson={currentLesson}
 				handleClose={() => setIsOpenModal(false)}
