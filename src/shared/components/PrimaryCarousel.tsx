@@ -5,10 +5,10 @@ import { Box, Stack, Typography } from '@mui/material'
 import { useState } from 'react'
 import Slider from 'react-slick'
 
-import Card1 from '../../assets/images/card1.jpg'
-import Card2 from '../../assets/images/card2.jpg'
-import Card3 from '../../assets/images/card3.jpg'
-import Card4 from '../../assets/images/card4.png'
+import Card1 from '../../../public/images/card1.jpg'
+import Card2 from '../../../public/images/card2.jpg'
+import Card3 from '../../../public/images/card3.jpg'
+import Card4 from '../../../public/images/card4.png'
 
 import style from './css/slick-dot.module.css'
 

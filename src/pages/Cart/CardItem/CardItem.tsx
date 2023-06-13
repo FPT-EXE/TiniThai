@@ -9,7 +9,7 @@ import { Grid, Tooltip } from '@mui/material'
 import { useBreakpoint } from 'styled-breakpoints/react-styled'
 import { up } from 'styled-breakpoints'
 
-import CourseThumbnail from '../../../assets/images/sampleImg.png'
+import CourseThumbnail from '../../../../public/images/CourseThumbnail.jpg'
 import { Course } from '../../../shared/common/types'
 
 

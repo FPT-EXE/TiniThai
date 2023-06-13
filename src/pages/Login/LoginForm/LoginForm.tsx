@@ -3,8 +3,8 @@ import { useBreakpoint } from 'styled-breakpoints/react-styled'
 import { up } from 'styled-breakpoints'
 import { useNavigate } from 'react-router-dom'
 
-import login from '../../../assets/images/login.svg'
-import GoogleIcon from '../../../assets/images/GoogleLogo.svg'
+import login from '../../../../public/images/login.svg'
+import GoogleIcon from '../../../../public/images/GoogleLogo.svg'
 import firebaseSvc from '../../../shared/services/FirebaseService'
 import RestService from '../../../shared/rest/RestService'
 

@@ -6,7 +6,7 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import courseDetailmg from '../../assets/images/CourseDetail.png'
+import courseDetailmg from '../../../public/images/CourseDetail.png'
 import { useAppDispatch, useAppSelector } from '../../shared/stores/hooks'
 import { Lesson } from '../../shared/common/types'
 import { setCurrentLesson } from '../../shared/stores/slices/lessonSlice'
