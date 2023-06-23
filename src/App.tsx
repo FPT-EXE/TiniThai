@@ -11,9 +11,11 @@ import CourseList from './pages/Courses/CourseList'
 import CourseDetail from './pages/CourseDetail/CourseDetail'
 import LessonDetail from './pages/LessonDetail/LessonDetail'
 import Payment from './pages/Payment'
+import { CoursesManagement, PaymentsManagement, UsersManagement } from './pages/Admin'
 
 
 const App: FC = () => {
+
 	return (
 		<Fragment>
 			<BrowserRouter>
@@ -42,6 +44,21 @@ const App: FC = () => {
 					<Route path="/payment" element={
 						<Layout>
 							<Payment />
+						</Layout>
+					} />
+					<Route path="/admin/courses" element={
+						<Layout>
+							<CoursesManagement />
+						</Layout>
+					} />
+					<Route path="/admin/users" element={
+						<Layout>
+							<UsersManagement />
+						</Layout>
+					} />
+					<Route path="/admin/payments" element={
+						<Layout>
+							<PaymentsManagement />
 						</Layout>
 					} />
 				</Routes>

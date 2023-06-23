@@ -4,11 +4,20 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "@hookform/resolvers": "^3.1.1",
+    "@iconify/icons-eva": "^1.2.6",
+    "@iconify/icons-ic": "^1.2.13",
+    "@iconify/react": "^4.1.0",
     "@mui/styled-engine-sc": "~5.12.0",
     "@reduxjs/toolkit": "~1.9.5",
+    "change-case": "^4.1.2",
+    "iconify": "^1.4.0",
     "react": "~18.2.0",
     "react-dom": "~18.2.0",
-    "react-redux": "~8.0.5"
+    "react-hook-form": "^7.44.3",
+    "react-redux": "~8.0.5",
+    "simplebar-react": "^3.2.4",
+    "yup": "^1.2.0"
   },
   "scripts": {
     "build": "webpack --mode production",

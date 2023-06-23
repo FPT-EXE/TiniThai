@@ -94,6 +94,10 @@ export default function MenuAppBar() {
 									setAnchorEl(null)
 									navigate('/courses')
 								}}>My courses</MenuItem>
+								<MenuItem onClick={() => {
+									setAnchorEl(null)
+									navigate('/admin/courses')
+								}}>Admin Management</MenuItem>
 							</Menu>
 						</div>
 					)}

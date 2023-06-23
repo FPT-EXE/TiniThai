@@ -1,5 +1,5 @@
 export type Course = {
-	_id?: string,
+	_id: string,
 	title: string,
 	alias: string,
 	background: string,
@@ -16,6 +16,17 @@ export type MCourse = {
 	description: string,
 	image: string,
 }
+
+export type CreateCourseForm = {
+	title: string,
+	background: string,
+	price: number,
+	alias: string,
+	description: string,
+	rating: number,
+	degreeOfDifficulty: number,
+};
+
 
 export type Lesson = {
 	id: number,
@@ -51,16 +62,41 @@ export type Lecture = {
 	spelling: string,
 	meaning: string,
 };
-// export type LessonAnswer = {
-// 	lessonId: number,
-// 	quizAnswers: {
-// 		quizNum: number,
-// 		userChoice: string,
-// 	}[],
-// };
 
 export type LessonAnswer = {
 	lessonId: number,
 	quizNum: number,
 	userChoice: string,
 };
+
+export type User = {
+	_id: string,
+	name: string,
+	email: string,
+	role: string,
+	courses: string[],
+	payments: string[],
+	purchasedCourses: PurchasedCourse[] | [],
+	__v: number,
+}
+  
+export type Payment = {
+	purchasedCourses: string[],
+	_id: string,
+	amount: number,
+	date: string,
+	content: string,
+	bankCode: string,
+	status: string,
+	user: User,
+	__v: number,
+}
+
+export type PurchasedCourse = {
+	_id: string,
+	course: Course,
+	status: string,
+	purchasedDate: string,
+	expiredDate: string,
+	__v: number,
+}

@@ -5,11 +5,12 @@ import { useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
 
-import { useAppDispatch, useAppSelector } from '../../shared/stores/hooks'
+
 // import { initializeAxios } from '../../shared/rest/axiosUtils'
 import { lessons } from '../../shared/common/constants/data'
 import { setCurrentLesson } from '../../shared/stores/slices/lessonSlice'
 import FixedBottomButton from '../../shared/components/Button'
+import { useAppDispatch, useAppSelector } from '../../shared/utils/reduxHook'
 
 import { LessonDetailContainer } from './styles'
 import QuizSection from './LessonPractice/QuizSection'
@@ -19,8 +20,9 @@ import LectureSection from './LessonPractice/LectureSection'
 const LessonDetail = () => {
 	const { lessonId } = useParams()
 	const navigate = useNavigate()
-	const currentLesson = useAppSelector((state) => state.lesson.currentLesson)
-	const currentCourse = useAppSelector((state) => state.course.currentCourse)
+	const reduxStates = useAppSelector((state) => state)
+	const currentLesson = reduxStates.lesson.currentLesson
+	const currentCourse = reduxStates.course.currentCourse
 	const dispatch = useAppDispatch()
 	// const axiosInstance = initializeAxios({options: {
 	// 	baseURL: process.env.API_DEV_BASE_URL,
