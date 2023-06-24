@@ -7,11 +7,11 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import courseDetailmg from '../../../public/images/CourseDetail.png'
-import { useAppDispatch, useAppSelector } from '../../shared/stores/hooks'
 import { Lesson } from '../../shared/common/types'
 import { setCurrentLesson } from '../../shared/stores/slices/lessonSlice'
 import { lessonColors, lessons } from '../../shared/common/constants/data'
 import FixedBottomButton from '../../shared/components/Button'
+import { useAppDispatch, useAppSelector } from '../../shared/utils/reduxHook'
 
 import {
 	CourseDetailButton,
@@ -56,7 +56,7 @@ const CourseDetail = () => {
 			<Stack justifyContent={'center'} minHeight="100vh">
 				<CourseDetailFlex>
 					<CourseDetailImageSection>
-						<CourseDetailImage src={currentCourse ? currentCourse.image : courseDetailmg} />
+						<CourseDetailImage src={currentCourse ? currentCourse.background : courseDetailmg} />
 						<Typography fontSize={'1.875rem'}>{currentCourse ? currentCourse?.title : 'Introductory Thai'}</Typography>
 					</CourseDetailImageSection>
 					<LessonSection>

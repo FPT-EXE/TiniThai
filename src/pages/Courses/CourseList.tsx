@@ -1,11 +1,10 @@
 import {  Typography } from '@mui/material'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
-import { courses } from '../../shared/common/constants/data'
-import { MCourse } from '../../shared/common/types'
+import { Course, } from '../../shared/common/types'
 import PrimaryCarousel from '../../shared/components/PrimaryCarousel'
-import { useAppDispatch, useAppSelector } from '../../shared/stores/hooks'
-import { setCurrentCourse } from '../../shared/stores/slices/courseSlice'
+import { useAppDispatch, useAppSelector } from '../../shared/utils/reduxHook'
+import { coursesFetch, setCurrentCourse } from '../../shared/slices/courseSlice'
 
 import { CourseGridItem, CourseItem, CourseListContainer, CourseGridContainer, CourseImageBox, CourseImage, CourseInfoSection, CourseProgress, CourseProgressText } from './style'
 import CourseModal from './CourseModal'
@@ -13,15 +12,20 @@ import CourseModal from './CourseModal'
 
 const CourseList = () => {
 	const dispatch = useAppDispatch()
+	const reduxStates = useAppSelector((state) => state)
+	const courseList = reduxStates.course.courseList
+	const currentCourse = reduxStates.course.currentCourse
 	const [isOpenModal, setIsOpenModal] = useState(false)
-	const currentCourse = useAppSelector((state) => state.course.currentCourse)
+	useEffect(() => {
+		dispatch(coursesFetch())
+	}, [dispatch])
 	return (
 		<>
 			<PrimaryCarousel />
 			<CourseListContainer>
 				<Typography fontSize={'2rem'}>Your courses</Typography>
 				<CourseGridContainer container>
-					{courses.slice(0.3).map((course: MCourse) => (
+					{courseList.map((course: Course, index) => (
 						<CourseGridItem
 							item
 							key={course.title}
@@ -55,16 +59,16 @@ const CourseList = () => {
 											},
 										}}
 										variant="determinate"
-										value={course.progress}
+										value={index+1 <= 10 ? (index+1)*10 : 0}
 									/>
 								</CourseInfoSection>
-								<CourseProgressText>{`${course.progress}%`}</CourseProgressText>
+								<CourseProgressText>{`${index+1 <= 10 ? (index+1)*10 : 0}%`}</CourseProgressText>
 								<CourseImageBox
 									sx={{
 										backgroundColor: 'trans',
 									}}
 								>
-									<CourseImage src={course.image} />
+									<CourseImage src={course.background} />
 								</CourseImageBox>
 							</CourseItem>
 						</CourseGridItem>

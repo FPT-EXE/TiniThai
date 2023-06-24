@@ -18,12 +18,13 @@ import {
 	StepperSection,
 } from '../styles'
 import { Lesson, LessonAnswer } from '../../../shared/common/types'
-import { useAppDispatch, useAppSelector } from '../../../shared/stores/hooks'
 import { QuestionTypeEnum } from '../../../shared/common/constants'
+import { useAppDispatch, useAppSelector } from '../../../shared/utils/reduxHook'
 import QuestionImage1 from '../../../../public/images/QuestionImage1.png'
 import { setLessonAnswers } from '../../../shared/stores/slices/lessonSlice'
 
 import Result from './Result'
+
 
 
 type QuizSectionProps = {
@@ -32,10 +33,11 @@ type QuizSectionProps = {
 
 const QuizSection = ({currentLesson }: QuizSectionProps) => {
 	const dispatch = useAppDispatch()
+	const reduxStates = useAppSelector((state) => state)
 	const [currentChoice, setCurrentChoice] = useState('')
 	const [activeStep, setActiveStep] = useState(0)
 	const [quizPart, setQuizPart] = useState(0)
-	const lessonAnswers = useAppSelector((state) => state.lesson.lessonAnswers)
+	const lessonAnswers = reduxStates.lesson.lessonAnswers
 	const handleNext = () => {
 		if (currentLesson) {
 			setCurrentChoice('')

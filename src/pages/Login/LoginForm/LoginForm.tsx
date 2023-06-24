@@ -7,11 +7,14 @@ import login from '../../../../public/images/login.svg'
 import GoogleIcon from '../../../../public/images/GoogleLogo.svg'
 import firebaseSvc from '../../../shared/services/FirebaseService'
 import RestService from '../../../shared/rest/RestService'
+import { useAppDispatch } from '../../../shared/utils/reduxHook'
+import { setAccessToken } from '../../../shared/slices/authSlice'
 
 import * as Styled from './styles'
 
 
 const LoginForm = () => {
+	const dispatch = useAppDispatch()
 	const isScreenLarge: boolean | null = useBreakpoint(up('md'))
 	const navigate = useNavigate()
 	const onSignInGoogle = async () => {
@@ -20,7 +23,7 @@ const LoginForm = () => {
 			console.log('Failed to sign in Google')
 			return
 		}
-
+		dispatch(setAccessToken(token))
 		RestService.setAuthorizationHeader(token)
 		try {
 			await RestService.post(process.env.BACKEND_ENDPOINT + '/auth/login')
