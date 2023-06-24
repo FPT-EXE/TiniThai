@@ -27,21 +27,21 @@ import * as Styled from './styles'
 // 	},
 // 	{
 // 		_id: '2',
-// 		title: 'Get creative with vocabulary ...',
+// 		title: 'สร้างสรรค์ด้วยคำศัพท์และไวยากรณ์',
 // 		background: 'https://png.pngtree.com/artfonts_detail/20181226/thai-red-font-text-sea-weed-pair-smooth-png_6780.jpg',
 // 		description:
-//       'In this course, students will be introduced to vocabulary words and how to use them in different communication ...',
+//       'In this course, students will be introduced to vocabulary words and how to use them in different communication situations. In addition, the course also focuses on improving the ability to use simple grammar to convey ideas and information clearly and accurately.',
 // 		price: 800000,
-// 		alias: 'ใช้ความคิดสร้างสรรค์ด้วยคํา..',
+// 		alias: 'สร้างสรรค์ด้วยคำศัพท์และไวยากรณ์',
 // 		degreeOfDifficulty: 8,
 // 		rating: 4.4
 // 	},
 // 	{
 // 		_id: '3',
-// 		title: 'Fluent with vocabulary ...',
+// 		title: 'Fluent with vocabulary and grammar',
 // 		background: 'https://learnthaistyle.com/wp-content/uploads/2019/05/Screen-Shot-2014-07-21-at-3.02.08-PM.png',
 // 		description:
-//       'This course will help students improve their ability to use the Thai language and better understand the ...',
+//       'This course will help students improve their ability to use the Thai language and better understand the grammatical structure of the Thai language. At the same time, students will also be introduced to new vocabulary and how to use them in different communication situations.',
 // 		price: 850000,
 // 		alias: 'คล่องแคล่วกับคําศัพท์และไวยากรณ์',
 // 		degreeOfDifficulty: 9,
@@ -103,9 +103,7 @@ const Home = () => {
 				<Styled.Courses>
 					<Grid container spacing={2}>
 						{courses.map((course, index) => (
-							<Grid key={index} item xs={12} sm={4} md={4}>
-								<MultiActionAreaCard course={course} handleAddToCart={() => handleAddToCart(course)} />
-							</Grid>
+							<MultiActionAreaCard key={index} course={course} handleAddToCart={() => handleAddToCart(course)} />
 						))}
 					</Grid>
 				</Styled.Courses>

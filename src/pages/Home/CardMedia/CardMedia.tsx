@@ -1,10 +1,11 @@
-import * as React from 'react'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
 import Typography from '@mui/material/Typography'
-import { CardActionArea, CardActions, Grid, IconButton, Tooltip } from '@mui/material'
+import { Box, Grid, IconButton, Tooltip } from '@mui/material'
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart'
+import { useBreakpoint } from 'styled-breakpoints/react-styled'
+import { up } from 'styled-breakpoints'
 
 import CourseThumbnail from '../../../../public/images/CourseThumbnail.jpg'
 import { Course } from '../../../shared/common/types'
@@ -15,31 +16,35 @@ type CardCourse = {
 	handleAddToCart: () => void,
 }
 export default function MultiActionAreaCard({course, handleAddToCart} : CardCourse) {
-	console.log(course)
-	console.log(course ? course.title : 'hong')
+	const isScreenLarge: boolean | null = useBreakpoint(up('md'))
 	return (
-		<Card sx={{ maxWidth: 345 }}>
-			<CardActionArea sx={{height: '350px'}}>
-				<CardMedia
-					component="img"
-					height="140"
-					image={course.background ? course.background : CourseThumbnail}
-					alt="green iguana"
-				/>
-				<CardContent>
-					<Typography gutterBottom variant="h5" component="div">
+		<Card sx={{ 
+			display: 'flex', 
+			width: '80%', 
+			ml: 'auto', 
+			mr: 'auto', 
+			mb: 1, 
+			mt: 1
+		}}>
+			<CardMedia
+				component="img"
+				sx={{ width: 151 }}
+				image={course.background ? course.background : CourseThumbnail}
+				alt="Live from space album cover"
+			/>
+			<Box sx={{ display: 'flex', flexDirection: 'column' }}>
+				<CardContent sx={{ flex: '1 0 auto' }}>
+					<Typography component="div" variant= { isScreenLarge ? 'h5' : 'h6' }>
 						{course.title}
 					</Typography>
-					<Typography gutterBottom variant="subtitle1" component="div">
+					<Typography variant="subtitle1" color="text.secondary" component="div">
 						{course.alias}
 					</Typography>
 					<Typography variant="body2" color="text.secondary">
 						{course.description}
 					</Typography>
 				</CardContent>
-			</CardActionArea>
-			<CardActions>
-				<Grid container>
+				<Grid container sx={{mb: 1}}>
 					<Grid item xs={7}>
 						<Typography gutterBottom variant="h6" component="div" sx={{ml: 2}}>
 							{course.price}
@@ -58,9 +63,8 @@ export default function MultiActionAreaCard({course, handleAddToCart} : CardCour
 						</Tooltip>
 					</Grid>
 				</Grid>
-				
-				
-			</CardActions>
+			</Box>
+			
 		</Card>
 	)
 }
